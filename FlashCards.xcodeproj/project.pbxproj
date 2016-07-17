@@ -16,6 +16,7 @@
 		8A2BAE721D354572002F3AE8 /* FlashCardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAE711D354572002F3AE8 /* FlashCardsUITests.swift */; };
 		8A2BAEF61D3AC726002F3AE8 /* FolderTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAEF51D3AC726002F3AE8 /* FolderTitleViewController.swift */; };
 		8A2BAEF81D3B00C3002F3AE8 /* FolderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAEF71D3B00C3002F3AE8 /* FolderCollectionViewCell.swift */; };
+		8A2BAEFA1D3B40A3002F3AE8 /* FlashcardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAEF91D3B40A3002F3AE8 /* FlashcardCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		8A2BAE731D354572002F3AE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A2BAEF51D3AC726002F3AE8 /* FolderTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderTitleViewController.swift; sourceTree = "<group>"; };
 		8A2BAEF71D3B00C3002F3AE8 /* FolderCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderCollectionViewCell.swift; sourceTree = "<group>"; };
+		8A2BAEF91D3B40A3002F3AE8 /* FlashcardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashcardCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				8A2BAE5A1D354572002F3AE8 /* LaunchScreen.storyboard */,
 				8A2BAE5D1D354572002F3AE8 /* Info.plist */,
 				8A2BAEF71D3B00C3002F3AE8 /* FolderCollectionViewCell.swift */,
+				8A2BAEF91D3B40A3002F3AE8 /* FlashcardCollectionViewCell.swift */,
 			);
 			path = FlashCards;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				8A2BAEF81D3B00C3002F3AE8 /* FolderCollectionViewCell.swift in Sources */,
 				8A2BAE541D354572002F3AE8 /* FoldersViewController.swift in Sources */,
+				8A2BAEFA1D3B40A3002F3AE8 /* FlashcardCollectionViewCell.swift in Sources */,
 				8A2BAE521D354572002F3AE8 /* AppDelegate.swift in Sources */,
 				8A2BAEF61D3AC726002F3AE8 /* FolderTitleViewController.swift in Sources */,
 			);

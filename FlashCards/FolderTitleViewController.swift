@@ -9,6 +9,10 @@
 import UIKit
 
 class FolderTitleViewController: UIViewController {
+    
+    var cards = ["Question 1", "Question 2", "Question 3"]
+    let reuseIdentifier = "flashcard"
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,4 +36,23 @@ class FolderTitleViewController: UIViewController {
     }
     */
 
+}
+
+extension FolderTitleViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+    
+ 
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return cards.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! FlashcardCollectionViewCell
+        cell.flashcardContent.text = " There are no questions so far "
+        return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        print (" Flashcard \(indexPath.item) was selected")
+    }
 }
