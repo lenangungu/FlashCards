@@ -10,7 +10,10 @@ import UIKit
 
 class FolderTitleViewController: UIViewController {
     
-    var cards = ["Question 1", "Question 2", "Question 3"]
+@IBOutlet weak var flashcardCollectionView: FlashcardsCollectionView!
+    
+//    var cards = ["Question 1", "Question 2", "Question 3"]
+    var cards: [Flashcard] = []
     let reuseIdentifier = "flashcard"
     
 
@@ -35,8 +38,33 @@ class FolderTitleViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+       
+        
+        // REVIEW!!!!
+        
+        let identifier = segue.identifier
+        if identifier == "existingFlashcard"
+        {
+         // create a new flashcard and populate it with existing content. Else, create a new flashcard with empty fields.
+       
+            var indexPath: [NSIndexPath]
+            indexPath = flashcardCollectionView.indexPathsForSelectedItems()!
+            let card = cards[indexPath[0].row]
+            
+            let displayFlashcardViewController = segue.destinationViewController as! FlashcardViewController
+            displayFlashcardViewController.card = card
+            
+        }
+    
+    }
+    
+    // Preparing the VC to receive an unwind segue
+    @IBAction func unwindToFolderTitleViewController(Segue: UIStoryboardSegue) {}
 
 }
+
 
 extension FolderTitleViewController: UICollectionViewDataSource, UICollectionViewDelegate{
     
@@ -47,8 +75,13 @@ extension FolderTitleViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! FlashcardCollectionViewCell
-        cell.flashcardContent.text = " There are no questions so far "
+        
+              let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! FlashcardCollectionViewCell
+        let row = indexPath.row
+
+        let card = cards[row]
+        
+        cell.flashcardContent.text = card.question
         return cell
     }
     

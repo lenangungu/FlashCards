@@ -13,8 +13,24 @@ class FoldersViewController: UIViewController {
     
     @IBOutlet weak var newFolderButton: UIBarButtonItem!
     @IBOutlet weak var foldersCollectionView: UICollectionView!
+    
+   
+    @IBAction func newFolderAction(sender: AnyObject) {
+    // Creat a new folder 
+      
+    }
 
-    var folders = ["History","French","Math"]
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     
+        
+    }
+    
+    class folder {
+        var title = " "
+    }
+//    var folders = ["History","French","Math"]
+    var folders: [folder] = []
     let resuseIdentifier = "folder"
     
     override func viewDidLoad() {
@@ -40,11 +56,17 @@ extension FoldersViewController: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(resuseIdentifier, forIndexPath: indexPath) as! FolderCollectionViewCell
+       
+        let row = indexPath.row
+        let newFolder = folders[row]
+      
+        cell.folderName.text = newFolder.title
         
-        cell.folderName.text = folders[indexPath.item]
+      //  cell.folderName.text = folders[indexPath.item]
         
         
         return cell
+        
     }
 // MARK: Delegate 
     
@@ -53,3 +75,23 @@ extension FoldersViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
 }
+
+
+
+
+//    @IBAction func newFolderAction(sender: AnyObject) {
+//
+//              collectionView(UICollectionView: foldersCollectionView, cellForItemAtIndexPath: indexPath )
+//    }
+
+
+//    @IBAction func newFolderAction(sender: AnyObject) {
+//
+//        //let createdFolder = folder()
+//        let newFolder = folders[]
+//        folders = folders.append(newFolder)
+//    }
+
+
+
+

@@ -17,6 +17,10 @@
 		8A2BAEF61D3AC726002F3AE8 /* FolderTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAEF51D3AC726002F3AE8 /* FolderTitleViewController.swift */; };
 		8A2BAEF81D3B00C3002F3AE8 /* FolderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAEF71D3B00C3002F3AE8 /* FolderCollectionViewCell.swift */; };
 		8A2BAEFA1D3B40A3002F3AE8 /* FlashcardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAEF91D3B40A3002F3AE8 /* FlashcardCollectionViewCell.swift */; };
+		8A2BAEFC1D3C41C5002F3AE8 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAEFB1D3C41C5002F3AE8 /* Flashcard.swift */; };
+		8A2BAF021D3C82DB002F3AE8 /* FlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAF011D3C82DB002F3AE8 /* FlashcardViewController.swift */; };
+		8A2BAF041D3D23A1002F3AE8 /* FoldersCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAF031D3D23A1002F3AE8 /* FoldersCollectionView.swift */; };
+		8A3C82C41D3D240F00846BC2 /* FlashcardsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3C82C31D3D240F00846BC2 /* FlashcardsCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		8A2BAEF51D3AC726002F3AE8 /* FolderTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderTitleViewController.swift; sourceTree = "<group>"; };
 		8A2BAEF71D3B00C3002F3AE8 /* FolderCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderCollectionViewCell.swift; sourceTree = "<group>"; };
 		8A2BAEF91D3B40A3002F3AE8 /* FlashcardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashcardCollectionViewCell.swift; sourceTree = "<group>"; };
+		8A2BAEFB1D3C41C5002F3AE8 /* Flashcard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
+		8A2BAF011D3C82DB002F3AE8 /* FlashcardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashcardViewController.swift; sourceTree = "<group>"; };
+		8A2BAF031D3D23A1002F3AE8 /* FoldersCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldersCollectionView.swift; sourceTree = "<group>"; };
+		8A3C82C31D3D240F00846BC2 /* FlashcardsCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashcardsCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,12 +114,16 @@
 				8A2BAE511D354572002F3AE8 /* AppDelegate.swift */,
 				8A2BAE531D354572002F3AE8 /* FoldersViewController.swift */,
 				8A2BAEF51D3AC726002F3AE8 /* FolderTitleViewController.swift */,
+				8A2BAF011D3C82DB002F3AE8 /* FlashcardViewController.swift */,
 				8A2BAE551D354572002F3AE8 /* Main.storyboard */,
 				8A2BAE581D354572002F3AE8 /* Assets.xcassets */,
 				8A2BAE5A1D354572002F3AE8 /* LaunchScreen.storyboard */,
 				8A2BAE5D1D354572002F3AE8 /* Info.plist */,
 				8A2BAEF71D3B00C3002F3AE8 /* FolderCollectionViewCell.swift */,
 				8A2BAEF91D3B40A3002F3AE8 /* FlashcardCollectionViewCell.swift */,
+				8A2BAEFB1D3C41C5002F3AE8 /* Flashcard.swift */,
+				8A2BAF031D3D23A1002F3AE8 /* FoldersCollectionView.swift */,
+				8A3C82C31D3D240F00846BC2 /* FlashcardsCollectionView.swift */,
 			);
 			path = FlashCards;
 			sourceTree = "<group>";
@@ -265,11 +277,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A2BAF021D3C82DB002F3AE8 /* FlashcardViewController.swift in Sources */,
+				8A2BAEFC1D3C41C5002F3AE8 /* Flashcard.swift in Sources */,
 				8A2BAEF81D3B00C3002F3AE8 /* FolderCollectionViewCell.swift in Sources */,
 				8A2BAE541D354572002F3AE8 /* FoldersViewController.swift in Sources */,
+				8A2BAF041D3D23A1002F3AE8 /* FoldersCollectionView.swift in Sources */,
 				8A2BAEFA1D3B40A3002F3AE8 /* FlashcardCollectionViewCell.swift in Sources */,
 				8A2BAE521D354572002F3AE8 /* AppDelegate.swift in Sources */,
 				8A2BAEF61D3AC726002F3AE8 /* FolderTitleViewController.swift in Sources */,
+				8A3C82C41D3D240F00846BC2 /* FlashcardsCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
