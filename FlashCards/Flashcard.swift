@@ -9,6 +9,8 @@
 import Foundation
 import RealmSwift
 class Flashcard: Object {
-    var question = " "
-    var answer = " "
+    
+    // have to be dynamic to connect the properties to Realm
+    dynamic var question = ""
+    dynamic var answer = ""
 }

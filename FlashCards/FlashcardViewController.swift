@@ -24,46 +24,47 @@ class FlashcardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let folderTitleViewController = segue.destinationViewController as! FolderTitleViewController
+        
         let identifier = segue.identifier
+        
         if identifier == "Save"
         {
-            // REimplement !!!  
+            // REVIEW !!!
             
-            if card != nil{
+            if let card = card{
                 let newCard = Flashcard()
                 newCard.question = questionTextView.text ?? " "
                 newCard.answer = answerTextView.text ?? " "
-                RealmHelper.updateCard(card!, newCard: newCard)
+                
+//       Debugging ste: print("\(newCard.answer) \(newCard.question)")
+                
+                RealmHelper.updateCard(card, newCard: newCard)
             }
                 else{
                 let emptyCard = Flashcard()
                 emptyCard.question = questionTextView.text ?? " "
-                emptyCard.answer = questionTextView.text ?? " "
+                emptyCard.answer = answerTextView.text ?? " "
                 RealmHelper.addCard(emptyCard)
               
                 }
+           
             print(" Flashcard saved")
             folderTitleViewController.cards = RealmHelper.retrieveFlashcard()
             }
       
             
         }
+  
     
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        // if there is an existing flashcard, load view 2 , else, load view 1
         
         // if card != nil ....
         if let card = card {
@@ -71,10 +72,17 @@ class FlashcardViewController: UIViewController {
             answerTextView.text = card.answer
         }
         else{
-    // Setting fields of newCards to empty strings 
-    questionTextView.text = " "
-    answerTextView.text = " "
+            // Setting fields of newCards to empty strings
+            questionTextView.text = " "
+            answerTextView.text = " "
         }
+    }
+
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 }
 
