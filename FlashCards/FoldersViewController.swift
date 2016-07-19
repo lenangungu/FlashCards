@@ -29,8 +29,8 @@ class FoldersViewController: UIViewController {
     class folder {
         var title = " "
     }
-//    var folders = ["History","French","Math"]
-    var folders: [folder] = []
+   var folders = ["History","French","Math"]
+   // var folders: [folder] = []
     let resuseIdentifier = "folder"
     
     override func viewDidLoad() {
@@ -58,9 +58,9 @@ extension FoldersViewController: UICollectionViewDataSource, UICollectionViewDel
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(resuseIdentifier, forIndexPath: indexPath) as! FolderCollectionViewCell
        
         let row = indexPath.row
-        let newFolder = folders[row]
+    //    let newFolder = folders[row]
       
-        cell.folderName.text = newFolder.title
+     //   cell.folderName.text = newFolder.title
         
       //  cell.folderName.text = folders[indexPath.item]
         

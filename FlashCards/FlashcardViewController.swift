@@ -8,20 +8,19 @@
 
 import UIKit
 
+
 class FlashcardViewController: UIViewController {
-    
     @IBOutlet weak var questionTextView: UITextView!
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var nextCardButton: UIButton!
     @IBOutlet weak var answerTextView: UITextView!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     
-    @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    @IBOutlet var newFlashcardView: UIView!
-    @IBOutlet var existingFlashcardView: UIView!
+    
     
     var card: Flashcard?
-    
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,25 +34,29 @@ class FlashcardViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+        let folderTitleViewController = segue.destinationViewController as! FolderTitleViewController
         let identifier = segue.identifier
         if identifier == "Save"
         {
             // REimplement !!!  
             
-            if let card = card{
+            if card != nil{
                 let newCard = Flashcard()
-                newCard.question = card.question ?? " "
-                newCard.answer = card.answer ?? " "
-                // update the newCard in the card.
+                newCard.question = questionTextView.text ?? " "
+                newCard.answer = answerTextView.text ?? " "
+                RealmHelper.updateCard(card!, newCard: newCard)
             }
                 else{
                 let emptyCard = Flashcard()
-                emptyCard.question = card!.question
-                emptyCard.answer = card!.answer
-                // add the empty card to
+                emptyCard.question = questionTextView.text ?? " "
+                emptyCard.answer = questionTextView.text ?? " "
+                RealmHelper.addCard(emptyCard)
+              
                 }
+            print(" Flashcard saved")
+            folderTitleViewController.cards = RealmHelper.retrieveFlashcard()
             }
+      
             
         }
     
@@ -62,16 +65,18 @@ class FlashcardViewController: UIViewController {
         super.viewWillAppear(animated)
         // if there is an existing flashcard, load view 2 , else, load view 1
         
-        if card != nil{
-          self.view.addSubview(existingFlashcardView)
+        // if card != nil ....
+        if let card = card {
+            questionTextView.text = card.question
+            answerTextView.text = card.answer
         }
         else{
-            self.view.addSubview(newFlashcardView)
+    // Setting fields of newCards to empty strings 
+    questionTextView.text = " "
+    answerTextView.text = " "
         }
     }
-    
-    }
-  
+}
 
 
 

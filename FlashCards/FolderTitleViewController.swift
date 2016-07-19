@@ -7,18 +7,31 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FolderTitleViewController: UIViewController {
+   
+    @IBOutlet weak var flashcardCollectionView: UICollectionView!
     
-@IBOutlet weak var flashcardCollectionView: FlashcardsCollectionView!
+
+    @IBOutlet weak var numOfCompletedCards: UILabel!
+ 
     
 //    var cards = ["Question 1", "Question 2", "Question 3"]
-    var cards: [Flashcard] = []
+//    var cards: [Flashcard] = []
+    
+    var cards: Results<Flashcard>!{
+        didSet{
+            flashcardCollectionView.reloadData()
+        }
+    }
+    
     let reuseIdentifier = "flashcard"
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        cards = RealmHelper.retrieveFlashcard()
 
         // Do any additional setup after loading the view.
     }
@@ -56,6 +69,9 @@ class FolderTitleViewController: UIViewController {
             let displayFlashcardViewController = segue.destinationViewController as! FlashcardViewController
             displayFlashcardViewController.card = card
             
+        }
+        else if identifier == "newFlashcard"{
+           print("New flashcard created")
         }
     
     }

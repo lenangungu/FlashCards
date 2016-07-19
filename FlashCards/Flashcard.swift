@@ -7,8 +7,8 @@
 //
 
 import Foundation
-
-class Flashcard {
+import RealmSwift
+class Flashcard: Object {
     var question = " "
     var answer = " "
 }
