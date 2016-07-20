@@ -20,6 +20,21 @@ class FolderTitleViewController: UIViewController {
     //    var cards: [Flashcard] = []
     var cards: Results<Flashcard>!
     
+    
+    
+    @IBAction func shareAction(sender: AnyObject) {
+        
+        if cards != ""{
+       
+        let activityVC = UIActivityViewController(activityItems: [cards], applicationActivities: nil)
+            
+            // Excluding activities not needed
+//            activityVC.excludedActivityTypes = [UIActivityTypePostToTwitter,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypePostToTencentWeibo, UIActivityTypePostToWeibo]
+        self.presentViewController(activityVC, animated: true, completion: nil)
+     }
+    }
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         cards = RealmHelper.retrieveFlashcard()
