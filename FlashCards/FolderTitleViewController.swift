@@ -10,11 +10,9 @@ import UIKit
 import RealmSwift
 
 class FolderTitleViewController: UIViewController {
-  
-   
+//    @IBOutlet weak var navItem: UINavigationItem!
+    
     @IBOutlet weak var flashcardCollectionView: UICollectionView!
-    @IBOutlet weak var numOfCompletedCards: UILabel!
- 
     
     let reuseIdentifier = "flashcard"
     

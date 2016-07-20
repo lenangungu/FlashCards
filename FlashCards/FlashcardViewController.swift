@@ -10,15 +10,13 @@ import UIKit
 
 
 class FlashcardViewController: UIViewController {
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var nextCardButton: UIButton!
     @IBOutlet weak var answerTextView: UITextView!
-    @IBOutlet weak var shareButton: UIBarButtonItem!
-    @IBOutlet weak var editButton: UIBarButtonItem!
-    
-    
-    
+
+   
     
     var card: Flashcard?
     
@@ -61,7 +59,6 @@ class FlashcardViewController: UIViewController {
             
         }
   
-    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
