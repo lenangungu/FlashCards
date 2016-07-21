@@ -11,6 +11,7 @@ import RealmSwift
 
 class RealmHelper {
     
+    // Flashcard functions
     static func doSomething() {
         
     }
@@ -37,6 +38,32 @@ class RealmHelper {
     static func retrieveFlashcard() -> Results<Flashcard> {
         let realm = try! Realm()
         return realm.objects(Flashcard)
+    }
+    
+    //Folder functions
+   
+    static func addFolder(folder: Folder) {
+        let realm = try! Realm()
+        try! realm.write() {
+            realm.add(folder)
+        }
+    }
+    static func deleteFolder(folder: Folder) {
+        let realm = try! Realm()
+        try! realm.write() {
+            realm.delete(folder)
+        }
+    }
+    static func updateFolder(folderToBeUpdated: Folder, newFolder: Folder) {
+        let realm = try! Realm()
+        try! realm.write() {
+            folderToBeUpdated.title = newFolder.title
+            
+        }
+    }
+    static func retrieveFolder() -> Results<Folder> {
+        let realm = try! Realm()
+        return realm.objects(Folder)
     }
     //static methods will go here
 }

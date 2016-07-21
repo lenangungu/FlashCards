@@ -10,22 +10,34 @@ import UIKit
 import RealmSwift
 
 class FolderTitleViewController: UIViewController {
-//    @IBOutlet weak var navItem: UINavigationItem!
+
+    @IBOutlet weak var folderTitleBar: UINavigationItem!
     
     @IBOutlet weak var flashcardCollectionView: UICollectionView!
     
     let reuseIdentifier = "flashcard"
+    // pass folder clicked to flashcard V.C
+    
     
     //    var cards = ["Question 1", "Question 2", "Question 3"]
     //    var cards: [Flashcard] = []
-    var cards: Results<Flashcard>!
+    var cards: Results<Flashcard>! // Dont need..drop all cards in passed folder's array (of cards)
     
+    @IBAction func addFlashcardAction(sender: AnyObject) {
+        
+        let card = Flashcard()
+        card.question = ""
+        card.answer = ""
+        print("Flashcard created")
+        RealmHelper.addCard(card)
+        flashcardCollectionView.reloadData()
+    }
     
     
     @IBAction func shareAction(sender: AnyObject) {
         
         if cards != ""{
-       
+         
         let activityVC = UIActivityViewController(activityItems: [cards], applicationActivities: nil)
             
             // Excluding activities not needed

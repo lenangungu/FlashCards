@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+
 class Flashcard: Object {
     
     // have to be dynamic to connect the properties to Realm

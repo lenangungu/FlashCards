@@ -15,10 +15,13 @@ class FlashcardViewController: UIViewController {
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var nextCardButton: UIButton!
     @IBOutlet weak var answerTextView: UITextView!
-
-   
     
     var card: Flashcard?
+    
+//    let placeHolderX: CGFloat = 5
+//    let placeHolderY: CGFloat = 0
+   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

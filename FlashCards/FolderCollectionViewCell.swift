@@ -8,9 +8,28 @@
 
 import UIKit
 
-class FolderCollectionViewCell: UICollectionViewCell {
+class FolderCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
  
     @IBOutlet weak var folderImage: UIImageView!
     
     @IBOutlet weak var folderName: UITextField!
+    
+    // Folder  of data model to be passed to cell
+    var folder: Folder?
+    
+    // Function notifying us that user had tapped return key
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        print(textField.text)
+        
+        let newFolder = Folder()
+        newFolder.title = textField.text!
+        
+      // folder is an optional thefore we need to unwrap it first
+       RealmHelper.updateFolder(folder!, newFolder: newFolder)
+        
+        return true
+    }
+    
+ 
 }

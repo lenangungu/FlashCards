@@ -9,8 +9,10 @@
 import Foundation
 import RealmSwift
 
-class Folder  {
+class Folder: Object  {
     
     // have to be dynamic to connect the properties to Realm
-  var title = "" 
+    dynamic var title = ""
+    // array to hold the cards RMLArray (objectClassName: "name") 
+
 }

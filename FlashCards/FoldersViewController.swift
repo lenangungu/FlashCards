@@ -7,23 +7,25 @@
 //
 
 import UIKit
-//import RealmSwift
+import RealmSwift
 
 
 class FoldersViewController: UIViewController {
     
+  
     @IBOutlet weak var newFolderButton: UIBarButtonItem!
     @IBOutlet weak var foldersCollectionView: UICollectionView!
     //var folders = ["History","French","Math"]
+    //var folders: [Folder] = []
     
-    //var folders: Results<Folder>
-    var folders: [Folder] = []
+    var folders: Results<Folder>!
     let resuseIdentifier = "folder"
-    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        folders = RealmHelper.retrieveFolder()
+         print("\(folders)")
         // Do any additional setup after loading the view, typically from a nib.
         
     }
@@ -32,34 +34,38 @@ class FoldersViewController: UIViewController {
 
     }
    
+    
+  
     @IBAction func newFolderAction(sender: AnyObject) {
-    // Creating a new folder 
+    // Creating a new folder
         
         let newFolder = Folder()
-        
         newFolder.title = ""
         
         // Adding newly created folder to array
-        folders.append(newFolder)
+        //folders.append(newFolder)
+        print("\(newFolder.title)")
+        
+        RealmHelper.addFolder(newFolder)
+        foldersCollectionView.reloadData()
+        
+    
         
         // Reloading the collection view to display the newly created folder
-        foldersCollectionView.reloadData()
+//        foldersCollectionView.reloadData()
         print("Folder created")
      
       
     }
-
+   
+    
+  
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let folderTitleVC = segue.destinationViewController as! FolderTitleViewController
         folderTitleVC.navigationItem.title = "Folder title" // Grab the folder title and add the variables of the completed item
         
     }
-//    
-//    class folder: Object {
-//       dynamic var title = " "
-//    }
-    
    
     
     override func didReceiveMemoryWarning() {
@@ -82,11 +88,14 @@ extension FoldersViewController: UICollectionViewDataSource, UICollectionViewDel
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(resuseIdentifier, forIndexPath: indexPath) as! FolderCollectionViewCell
        
         let newFolder = folders[indexPath.row]
-      
-        cell.folderName.text = newFolder.title
+        //folderNameHolder = newFolder.title
+        //newFolder.title = folderNameHolder
         
+       // cell.folderName.text = folderNameHolder
+        cell.folderName.text = newFolder.title 
       //  cell.folderName.text = folders[indexPath.item]
         
+        cell.folder = newFolder
         
         return cell
         
