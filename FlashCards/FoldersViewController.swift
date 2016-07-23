@@ -9,7 +9,6 @@
 import UIKit
 import RealmSwift
 
-
 class FoldersViewController: UIViewController {
     
   
@@ -19,6 +18,8 @@ class FoldersViewController: UIViewController {
     //var folders: [Folder] = []
     
     var folders: Results<Folder>!
+    // optional cause there wont be a folder when app first runs; not folder = Folder() cause we do not want to create a folder, we just want a variable that will accept a folder
+    var folder: Folder?
     let resuseIdentifier = "folder"
     
     
@@ -45,6 +46,7 @@ class FoldersViewController: UIViewController {
         // Adding newly created folder to array
         //folders.append(newFolder)
         print("\(newFolder.title)")
+       
         
         RealmHelper.addFolder(newFolder)
         foldersCollectionView.reloadData()
@@ -64,8 +66,16 @@ class FoldersViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let folderTitleVC = segue.destinationViewController as! FolderTitleViewController
         folderTitleVC.navigationItem.title = "Folder title" // Grab the folder title and add the variables of the completed item
+        // Pass folder to next V.C
         
-    }
+        // Ask collection view which cell was selected
+        let indexPath = (foldersCollectionView.indexPathsForSelectedItems())![0]
+        folder = folders[indexPath.item]
+    
+       // Passing the selected folder to the next view controller
+       folderTitleVC.folder = folder
+        
+            }
    
     
     override func didReceiveMemoryWarning() {
@@ -96,14 +106,15 @@ extension FoldersViewController: UICollectionViewDataSource, UICollectionViewDel
       //  cell.folderName.text = folders[indexPath.item]
         
         cell.folder = newFolder
-        
+       
         return cell
         
     }
 // MARK: Delegate 
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print ("Folder \(indexPath.item) was selected")
+        print ("Folder \(indexPath.item + 1) was selected")
+//    folder = folders[indexPath.item]
     }
     
 }

@@ -21,7 +21,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RRI-2j-S4b">
                                 <rect key="frame" x="0.0" y="64" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.75062364130000003" green="1" blue="0.9660729414" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.88244682789999995" green="0.81252378800000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LUe-CA-F21">
                                     <size key="itemSize" width="101" height="90"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -38,6 +38,7 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QV6-bN-07A">
                                                     <rect key="frame" x="2" y="60" width="97" height="30"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -74,11 +75,13 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Folders" id="Gpi-El-PX5">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="z4L-3O-iCd">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="newFolderAction:" destination="BYZ-38-t0r" id="GHz-Oj-wyM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="foldersCollectionView" destination="RRI-2j-S4b" id="mnB-St-Dnk"/>
                         <outlet property="newFolderButton" destination="z4L-3O-iCd" id="gAS-tm-rxI"/>
@@ -102,7 +105,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Egh-f7-l39" userLabel="Flashcards Collection View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.75062364130000003" green="1" blue="0.9660729414" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.88244682789999995" green="0.81252378800000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wBR-pr-WGZ">
                                     <size key="itemSize" width="244" height="92"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -341,9 +344,12 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="wh4-q9-rL8" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lvB-IZ-YnL">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="lvB-IZ-YnL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.28815424941286788" green="0.2400612297688795" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="iNf-bT-29Q">

@@ -13,6 +13,9 @@ class Folder: Object  {
     
     // have to be dynamic to connect the properties to Realm
     dynamic var title = ""
-    // array to hold the cards RMLArray (objectClassName: "name") 
+    
+    // array to hold the cards RLLArray(objectClassName: "Alias")
+    
+    var cardArray = List<Flashcard>()
 
 }

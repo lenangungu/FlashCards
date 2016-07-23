@@ -21,7 +21,10 @@ class FolderTitleViewController: UIViewController {
     
     //    var cards = ["Question 1", "Question 2", "Question 3"]
     //    var cards: [Flashcard] = []
-    var cards: Results<Flashcard>! // Dont need..drop all cards in passed folder's array (of cards)
+    
+   // var cards: Results<Flashcard>! // Dont need..drop all cards in passed folder's array (of cards)
+    //var cards = List<Flashcard>() - replaced by array inside the folder we just passed
+    var folder: Folder? 
     
     @IBAction func addFlashcardAction(sender: AnyObject) {
         
@@ -29,16 +32,21 @@ class FolderTitleViewController: UIViewController {
         card.question = ""
         card.answer = ""
         print("Flashcard created")
-        RealmHelper.addCard(card)
+        
+        let realm = try! Realm()
+        try! realm.write(){
+            folder!.cardArray.append(card)}
+       // RealmHelper.addCard(card)
         flashcardCollectionView.reloadData()
     }
     
     
     @IBAction func shareAction(sender: AnyObject) {
         
-        if cards != ""{
+        if folder?.cardArray.count > 0 {
          
-        let activityVC = UIActivityViewController(activityItems: [cards], applicationActivities: nil)
+            // come back...might want to use nil coalescing operator
+        let activityVC = UIActivityViewController(activityItems: [(folder?.cardArray)!], applicationActivities: nil)
             
             // Excluding activities not needed
 //            activityVC.excludedActivityTypes = [UIActivityTypePostToTwitter,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypePostToTencentWeibo, UIActivityTypePostToWeibo]
@@ -49,7 +57,10 @@ class FolderTitleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cards = RealmHelper.retrieveFlashcard()
+       // cards = RealmHelper.retrieveFlashcard()
+        
+        // Store all cards in array of the foler we passed
+        // Folder.cardArray = RealmHelper.retrieveFlashcard()
         
         
         //        print("\(cards)")
@@ -58,6 +69,8 @@ class FolderTitleViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         // reloading the model before it appears
+        
+        folderTitleBar.title = (folder!.title)
         flashcardCollectionView.reloadData()
     }
     
@@ -71,7 +84,7 @@ class FolderTitleViewController: UIViewController {
          // create a new flashcard and populate it with existing content. Else, create a new flashcard with empty fields.
        
             var indexPaths: [NSIndexPath] = flashcardCollectionView.indexPathsForSelectedItems()!
-            let card = cards[indexPaths[0].row]
+            let card = folder?.cardArray[indexPaths[0].row]
             
             let displayFlashcardViewController = segue.destinationViewController as! FlashcardViewController
             displayFlashcardViewController.card = card
@@ -99,20 +112,24 @@ extension FolderTitleViewController: UICollectionViewDataSource, UICollectionVie
         
         
 //     Debugging Step: for (index, card) in cards.enumerate(){ print("card number \(index): \(card.question), \(card.answer)") }
-        return cards.count
+        
+        // Used nil coalescing operator to make sure 0 is returned in case there are no folder cause retunr line would just no be executed if folder is 0 since the return should be an int
+        return folder?.cardArray.count ?? 0
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! FlashcardCollectionViewCell
-        let card = cards[indexPath.row]
+        let card = folder?.cardArray[indexPath.row]
         
         
         //    Debugging steps:
         //    print("CARD \(indexPath.row): \(card)")
         //    print("card number \(index): \(card.question), \(card.answer)")
-
-        cell.flashcardContent.text = card.question
+        
+        
+        // Card is ow optional because in the previous line it is taking an optional folder so card itself will not exist if there is no folder
+        cell.flashcardContent.text = card?.question
         return cell
     }
     

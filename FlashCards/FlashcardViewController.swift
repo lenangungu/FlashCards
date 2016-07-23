@@ -17,12 +17,7 @@ class FlashcardViewController: UIViewController {
     @IBOutlet weak var answerTextView: UITextView!
     
     var card: Flashcard?
-    
-//    let placeHolderX: CGFloat = 5
-//    let placeHolderY: CGFloat = 0
    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +25,9 @@ class FlashcardViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let folderTitleViewController = segue.destinationViewController as! FolderTitleViewController
+        
+        // Not passing anything back to the view controller so no reference to it needed
+//        let folderTitleViewController = segue.destinationViewController as! FolderTitleViewController
         
         let identifier = segue.identifier
         
@@ -43,20 +40,24 @@ class FlashcardViewController: UIViewController {
                 newCard.question = questionTextView.text ?? " "
                 newCard.answer = answerTextView.text ?? " "
                 
-//       Debugging ste: print("\(newCard.answer) \(newCard.question)")
+//       Debugging step: print("\(newCard.answer) \(newCard.question)")
                 
                 RealmHelper.updateCard(card, newCard: newCard)
             }
-                else{
-                let emptyCard = Flashcard()
-                emptyCard.question = questionTextView.text ?? " "
-                emptyCard.answer = answerTextView.text ?? " "
-                RealmHelper.addCard(emptyCard)
-              
-                }
+//                // Will never be the case because we are always passing a  card since we save it when we create it
+//                else{
+//                let emptyCard = Flashcard()
+//                emptyCard.question = questionTextView.text ?? " "
+//                emptyCard.answer = answerTextView.text ?? " "
+//                RealmHelper.addCard(emptyCard)
+//                
+//                }
            
             print(" Flashcard saved")
-            folderTitleViewController.cards = RealmHelper.retrieveFlashcard()
+            
+            // Folder already has cards because we append them as we create them...no need to retrieve them
+//        folderTitleViewController.folder?.cardArray = RealmHelper.retrieveFlashcard()
+         
             }
       
             

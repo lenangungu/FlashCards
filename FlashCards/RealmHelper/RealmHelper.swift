@@ -21,6 +21,7 @@ class RealmHelper {
             realm.add(card)
         }
     }
+    
     static func deleteCard(card: Flashcard) {
         let realm = try! Realm()
         try! realm.write() {
@@ -41,7 +42,7 @@ class RealmHelper {
     }
     
     //Folder functions
-   
+   // add func add card to folder 
     static func addFolder(folder: Folder) {
         let realm = try! Realm()
         try! realm.write() {
@@ -62,6 +63,13 @@ class RealmHelper {
         }
     }
     static func retrieveFolder() -> Results<Folder> {
+        
+//        // Update the database for new users
+//        let config = Realm.Configuration(
+//            schemaVersion: 1, migrationBlock: { migration, oldSchemaVersion in
+//                if (oldSchemaVersion < 1){}})
+//        Realm.Configuration.defaultConfiguration = config
+     
         let realm = try! Realm()
         return realm.objects(Folder)
     }
