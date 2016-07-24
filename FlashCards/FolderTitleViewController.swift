@@ -26,19 +26,19 @@ class FolderTitleViewController: UIViewController {
     //var cards = List<Flashcard>() - replaced by array inside the folder we just passed
     var folder: Folder? 
     
-    @IBAction func addFlashcardAction(sender: AnyObject) {
-        
-        let card = Flashcard()
-        card.question = ""
-        card.answer = ""
-        print("Flashcard created")
-        
-        let realm = try! Realm()
-        try! realm.write(){
-            folder!.cardArray.append(card)}
-       // RealmHelper.addCard(card)
-        flashcardCollectionView.reloadData()
-    }
+//    @IBAction func addFlashcardAction(sender: AnyObject) {
+//        
+//        let card = Flashcard()
+//        card.question = ""
+//        card.answer = ""
+//        print("Flashcard created")
+//        
+//        let realm = try! Realm()
+//        try! realm.write(){
+//            folder!.cardArray.append(card)}
+//       // RealmHelper.addCard(card)
+//        flashcardCollectionView.reloadData()
+//    }
     
     
     @IBAction func shareAction(sender: AnyObject) {
@@ -92,6 +92,9 @@ class FolderTitleViewController: UIViewController {
             
         }
         else if identifier == "newFlashcard"{
+            let newFlashcardVC = segue.destinationViewController as!NewFlashcardViewController
+            newFlashcardVC.folder = folder
+            
            print("New flashcard")
         }
     
@@ -107,6 +110,9 @@ class FolderTitleViewController: UIViewController {
 
 extension FolderTitleViewController: UICollectionViewDataSource, UICollectionViewDelegate{
     
+//    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+//        return 3
+//    }
  
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -136,9 +142,7 @@ extension FolderTitleViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         print (" Flashcard \(indexPath.item) was selected")
     }
-    
-
-    
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

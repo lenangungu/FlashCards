@@ -9,9 +9,10 @@
 import UIKit
 import RealmSwift
 
-class FoldersViewController: UIViewController {
+class FoldersViewController: UIViewController, UIGestureRecognizerDelegate {
     
   
+   
     @IBOutlet weak var newFolderButton: UIBarButtonItem!
     @IBOutlet weak var foldersCollectionView: UICollectionView!
     //var folders = ["History","French","Math"]
@@ -29,13 +30,40 @@ class FoldersViewController: UIViewController {
          print("\(folders)")
         // Do any additional setup after loading the view, typically from a nib.
         
-    }
+        // Adding a gesture recognizer
+        
+        
+       // let lgpr = UILongPressGestureRecognizer(target: foldersCollectionView, action: #selector(FoldersViewController.handleLongPress))
+       // lgpr.minimumPressDuration = 0.5
+       // lgpr.delaysTouchesBegan = true
+       // lgpr.delegate = self
+       // foldersCollectionView.addGestureRecognizer(lgpr)
+       
+        }
+    
+//    
+//  func handleLongPress(gestureReconizer: UILongPressGestureRecognizer)
+//    {
+//        if gestureReconizer.state != UIGestureRecognizerState.Ended{
+//            return
+//        }
+//        let point = gestureReconizer.locationInView(foldersCollectionView)
+//        let indexPath = foldersCollectionView.indexPathForItemAtPoint(point)
+//        if let index = indexPath{
+//            let cell = foldersCollectionView.cellForItemAtIndexPath(index)
+//            print(index.row)
+//            
+//            
+//        }
+//        else{ print("Could not find index path")
+//            
+//        }
+//        
+//    }
     
     override func viewWillAppear(animated: Bool) {
 
     }
-   
-    
   
     @IBAction func newFolderAction(sender: AnyObject) {
     // Creating a new folder
@@ -86,7 +114,7 @@ class FoldersViewController: UIViewController {
 
 }
 
-extension FoldersViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+extension FoldersViewController: UICollectionViewDataSource, UICollectionViewDelegate {
  
 // MARK: DataSource
 // How many cells to make
@@ -115,9 +143,14 @@ extension FoldersViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         print ("Folder \(indexPath.item + 1) was selected")
 //    folder = folders[indexPath.item]
+        
+        
     }
     
 }
+
+
+
 
 
 

@@ -25,6 +25,7 @@
 		8A3C82D71D3DE44A00846BC2 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3C82D41D3DE44A00846BC2 /* RealmSwift.framework */; };
 		8A3C82D81D3DE44A00846BC2 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3C82D41D3DE44A00846BC2 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A3C82DB1D3E9F1F00846BC2 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3C82DA1D3E9F1F00846BC2 /* Folder.swift */; };
+		8A3C82DD1D457D2600846BC2 /* NewFlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3C82DC1D457D2600846BC2 /* NewFlashcardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		8A3C82D31D3DE44A00846BC2 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../../Realm.framework; sourceTree = "<group>"; };
 		8A3C82D41D3DE44A00846BC2 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../../RealmSwift.framework; sourceTree = "<group>"; };
 		8A3C82DA1D3E9F1F00846BC2 /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		8A3C82DC1D457D2600846BC2 /* NewFlashcardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFlashcardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				8A2BAEF91D3B40A3002F3AE8 /* FlashcardCollectionViewCell.swift */,
 				8A2BAEFB1D3C41C5002F3AE8 /* Flashcard.swift */,
 				8A3C82DA1D3E9F1F00846BC2 /* Folder.swift */,
+				8A3C82DC1D457D2600846BC2 /* NewFlashcardViewController.swift */,
 			);
 			path = FlashCards;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				8A2BAEFC1D3C41C5002F3AE8 /* Flashcard.swift in Sources */,
 				8A2BAEF81D3B00C3002F3AE8 /* FolderCollectionViewCell.swift in Sources */,
 				8A2BAE541D354572002F3AE8 /* FoldersViewController.swift in Sources */,
+				8A3C82DD1D457D2600846BC2 /* NewFlashcardViewController.swift in Sources */,
 				8A2BAEFA1D3B40A3002F3AE8 /* FlashcardCollectionViewCell.swift in Sources */,
 				8A3C82C71D3DDAD900846BC2 /* RealmHelper.swift in Sources */,
 				8A2BAE521D354572002F3AE8 /* AppDelegate.swift in Sources */,

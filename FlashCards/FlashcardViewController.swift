@@ -13,10 +13,12 @@ class FlashcardViewController: UIViewController {
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var doneButton: UIButton!
-    @IBOutlet weak var nextCardButton: UIButton!
+ 
+    @IBOutlet weak var nextPageButton: UIBarButtonItem!
     @IBOutlet weak var answerTextView: UITextView!
     
     var card: Flashcard?
+   
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,7 @@ class FlashcardViewController: UIViewController {
                 
                 RealmHelper.updateCard(card, newCard: newCard)
             }
+            
 //                // Will never be the case because we are always passing a  card since we save it when we create it
 //                else{
 //                let emptyCard = Flashcard()
@@ -63,6 +66,9 @@ class FlashcardViewController: UIViewController {
             
         }
   
+   
+   
+ 
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -71,12 +77,15 @@ class FlashcardViewController: UIViewController {
         if let card = card {
             questionTextView.text = card.question
             answerTextView.text = card.answer
+            
         }
         else{
             // Setting fields of newCards to empty strings
             questionTextView.text = " "
             answerTextView.text = " "
+    
         }
+    
     }
 
     

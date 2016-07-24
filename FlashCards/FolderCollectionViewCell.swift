@@ -25,6 +25,9 @@ class FolderCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         let newFolder = Folder()
         newFolder.title = textField.text!
         
+        // Make cursor dissapear when enter is pressed
+        textField.endEditing(true)
+        
       // folder is an optional thefore we need to unwrap it first
        RealmHelper.updateFolder(folder!, newFolder: newFolder)
         
