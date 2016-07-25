@@ -17,7 +17,6 @@ class NewFlashcardViewController: UIViewController {
     @IBOutlet var saveButton: UIView!
     
      var folder: Folder?
-     var card: Flashcard?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,13 +51,10 @@ class NewFlashcardViewController: UIViewController {
         
         func viewWillAppear(animated: Bool) {
             super.viewWillAppear(animated)
-            
-                questionTextView.text = " "
-                answerTextView.text = " "
-            
+          
             }
             
-        }
+    }
     
     
     

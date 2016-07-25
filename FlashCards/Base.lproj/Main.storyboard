@@ -164,7 +164,6 @@
                     <navigationItem key="navigationItem" title="Folder Title" id="VQM-5O-fSZ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="WRD-2g-TYV">
                             <connections>
-                                <action selector="addFlashcardAction:" destination="3Gu-tF-7GM" id="w7b-Eu-IM9"/>
                                 <segue destination="bNV-Dd-llF" kind="show" identifier="newFlashcard" id="O9E-kh-IdB"/>
                             </connections>
                         </barButtonItem>

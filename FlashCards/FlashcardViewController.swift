@@ -79,12 +79,12 @@ class FlashcardViewController: UIViewController {
             answerTextView.text = card.answer
             
         }
-        else{
-            // Setting fields of newCards to empty strings
-            questionTextView.text = " "
-            answerTextView.text = " "
-    
-        }
+//        else{
+//            // Setting fields of newCards to empty strings
+//            questionTextView.text = " "
+//            answerTextView.text = " "
+//    
+//        }
     
     }
 
