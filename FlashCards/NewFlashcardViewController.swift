@@ -14,9 +14,11 @@ class NewFlashcardViewController: UIViewController {
     @IBOutlet weak var answerTextView: UITextView!
   
     @IBOutlet weak var questionTextView: UITextView!
-    @IBOutlet var saveButton: UIView!
+    
+  
     
      var folder: Folder?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +53,7 @@ class NewFlashcardViewController: UIViewController {
         
         func viewWillAppear(animated: Bool) {
             super.viewWillAppear(animated)
-          
+         
             }
             
     }

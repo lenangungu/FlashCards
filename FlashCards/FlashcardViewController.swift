@@ -7,29 +7,95 @@
 //
 
 import UIKit
+import RealmSwift
 
 
 class FlashcardViewController: UIViewController {
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var questionTextView: UITextView!
-    @IBOutlet weak var doneButton: UIButton!
- 
     @IBOutlet weak var nextPageButton: UIBarButtonItem!
     @IBOutlet weak var answerTextView: UITextView!
+    @IBOutlet var flashcardView: UIView!
+    
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var containerImage: UIImageView!
+    @IBOutlet weak var placeholderTextField: UITextField!
+    
+    @IBOutlet weak var answerTextLabel: UILabel!
+    
+    var folder: Folder?
     
     var card: Flashcard?
-   
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var cardArray: List<Flashcard>?
+    var index: Int?
+    
+    @IBAction func answerSwipeAction(sender: AnyObject) {
+        containerView.hidden = true
+        containerImage.hidden = true
+        placeholderTextField.hidden = true
+        answerTextLabel.hidden = false 
         
-        // Do any additional setup after loading the view.
     }
+    
+    
+    @IBAction func swipeAction(sender: AnyObject) {
+        
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func fowardSwipeAction(sender: AnyObject) {
+        
+        
+    }
+    
+//    @IBAction func swipeContainerAction(sender: AnyObject) {
+//        
+//        containerView.hidden = true
+//        placeholderTextField.hidden = true
+//        containerImage.hidden = true
+//    }
+  
+
+    @IBAction func nextButtonAction(sender: AnyObject) {
+        
+//        // if there is still a card in the array, display the next card
+        cardArray = folder?.cardArray
+        let count = cardArray!.count
+    
+        index = index! + 1
+       
+        if count > 1
+        {
+            nextPageButton.enabled = true
+            let nextCard = cardArray![index!]
+        
+            self.card = nextCard
+        // Debug step 
+            print("\(card!.question)")
+        
+          // Called viewWilAppear to relaod the view
+           
+        print("Next card")
+        self.viewWillAppear(true)
+        //        print ("\(count)")\
+           
+
+       }
+        
+        else {nextPageButton.enabled = false }
+    }
+    
+    
+    
+        
+   
+    
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         // Not passing anything back to the view controller so no reference to it needed
-//        let folderTitleViewController = segue.destinationViewController as! FolderTitleViewController
+        //        let folderTitleViewController = segue.destinationViewController as! FolderTitleViewController
         
         let identifier = segue.identifier
         
@@ -42,10 +108,31 @@ class FlashcardViewController: UIViewController {
                 newCard.question = questionTextView.text ?? " "
                 newCard.answer = answerTextView.text ?? " "
                 
-//       Debugging step: print("\(newCard.answer) \(newCard.question)")
+                //       Debugging step: print("\(newCard.answer) \(newCard.question)")
                 
                 RealmHelper.updateCard(card, newCard: newCard)
+                 print(" Flashcard saved")
+                
             }
+        }
+        
+       
+        }
+    
+    
+
+   
+    
+   
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+    
+    
+    
+
+        
             
 //                // Will never be the case because we are always passing a  card since we save it when we create it
 //                else{
@@ -55,8 +142,7 @@ class FlashcardViewController: UIViewController {
 //                RealmHelper.addCard(emptyCard)
 //                
 //                }
-           
-            print(" Flashcard saved")
+        
             
             // Folder already has cards because we append them as we create them...no need to retrieve them
 //        folderTitleViewController.folder?.cardArray = RealmHelper.retrieveFlashcard()
@@ -64,7 +150,7 @@ class FlashcardViewController: UIViewController {
             }
       
             
-        }
+    
   
    
    
@@ -85,6 +171,7 @@ class FlashcardViewController: UIViewController {
 //            answerTextView.text = " "
 //    
 //        }
+    
     
     }
 

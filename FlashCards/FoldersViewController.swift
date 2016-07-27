@@ -11,8 +11,7 @@ import RealmSwift
 
 class FoldersViewController: UIViewController, UIGestureRecognizerDelegate {
     
-  
-   
+
     @IBOutlet weak var newFolderButton: UIBarButtonItem!
     @IBOutlet weak var foldersCollectionView: UICollectionView!
     //var folders = ["History","French","Math"]
@@ -22,7 +21,55 @@ class FoldersViewController: UIViewController, UIGestureRecognizerDelegate {
     // optional cause there wont be a folder when app first runs; not folder = Folder() cause we do not want to create a folder, we just want a variable that will accept a folder
     var folder: Folder?
     let resuseIdentifier = "folder"
+   
     
+    @IBAction func deleteAction(sender: UILongPressGestureRecognizer) {
+        
+        let cellIndex = (sender.view as! FolderCollectionViewCell).cellIndex
+
+        
+        let questionController = UIAlertController(title: "Delete folder?", message: nil, preferredStyle: .Alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel){(action) in
+            
+            (sender.view as! FolderCollectionViewCell).backgroundColor = nil}
+        
+            questionController.addAction(cancelAction)
+        
+//        collectionView(foldersCollectionView, didSelectItemAtIndexPath:(sender.view as! FolderCollectionViewCell).indPath! )
+        
+       
+            (sender.view as! FolderCollectionViewCell).backgroundColor = UIColor.grayColor()
+        
+       
+        let deleteAction = UIAlertAction(title: "Delete", style: .Default){(action) in
+            
+           
+         
+           
+            // self.foldersCollectionView.delete(folder)
+           //  self.foldersCollectionView.delete
+      
+   
+             // RealmHelper.deleteFolder(sender)
+            // delete the folder prop erty of the cell that underwent the recognizer
+            // Th sender's view is a cell
+           
+             RealmHelper.deleteFolder(self.folders[cellIndex])
+             (sender.view as! FolderCollectionViewCell).backgroundColor = nil
+             self.foldersCollectionView.reloadData()
+            
+            
+         
+            
+        }
+        //(sender.view as! FolderCollectionViewCell).highlighted = true
+        questionController.addAction(deleteAction)
+       
+      
+        self.presentViewController(questionController, animated: true, completion: nil)
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +78,8 @@ class FoldersViewController: UIViewController, UIGestureRecognizerDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
         // Adding a gesture recognizer
+        
+        
         
         
        // let lgpr = UILongPressGestureRecognizer(target: foldersCollectionView, action: #selector(FoldersViewController.handleLongPress))
@@ -118,41 +167,77 @@ extension FoldersViewController: UICollectionViewDataSource, UICollectionViewDel
  
 // MARK: DataSource
 // How many cells to make
+    
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return folders.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(resuseIdentifier, forIndexPath: indexPath) as! FolderCollectionViewCell
-       
+        
         let newFolder = folders[indexPath.row]
         //folderNameHolder = newFolder.title
         //newFolder.title = folderNameHolder
         
-       // cell.folderName.text = folderNameHolder
-        cell.folderName.text = newFolder.title 
-      //  cell.folderName.text = folders[indexPath.item]
         
+        // cell.folderName.text = folderNameHolder
+        //  cell.folderName.text = folders[indexPath.item]
+        cell.folderName.text = newFolder.title
+        cell.cellIndex = indexPath.row
         cell.folder = newFolder
-       
+        
+        let gestureRecognizer = UILongPressGestureRecognizer()
+        
+        // Add target to
+        // The target is the View controller that will handle the gesture
+        // The selector is the name of the function
+        // Object.property or . method
+        // self is the instance of the class where the object was made in
+        // Action, which is the selector, has to be in quotes
+        
+        gestureRecognizer.addTarget(self , action: #selector(FoldersViewController.deleteAction(_:)))
+        // Adding recognizer to cell
+        cell.addGestureRecognizer(gestureRecognizer)
+        
         return cell
         
     }
-// MARK: Delegate 
+// MARK: Delegate
+    
+   
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         print ("Folder \(indexPath.item + 1) was selected")
-//    folder = folders[indexPath.item]
         
-        
+//       folder = folders[indexPath.item]
     }
     
-}
+    
 
 
 
+    
+    //let alertController =  UIAlertController(title:nil, message: "Delete?", preferredStyle: .ActionSheet)
 
-
+//    @IBAction func deleteAction(sender: AnyObject) {
+//        
+//        
+//        func deleteFolder{
+//        
+//        let alertController =  UIAlertController(title:nil, message: "Delete?", preferredStyle: .ActionSheet)
+//        let deleteAction = UIAlertAction(title: "Delete", style: .Default){(action) in
+//            RealmHelper.deleteFolder(self.folder!)
+//            
+//    }
+//    alertController.addAction(deleteAction)
+//}
+//
+//    .presentViewController(alertController, animated: true, completion: nil)
+//
+//}
+//
+//}
 
 
 //    @IBAction func newFolderAction(sender: AnyObject) {
@@ -170,4 +255,5 @@ extension FoldersViewController: UICollectionViewDataSource, UICollectionViewDel
 
 
 
+}
 

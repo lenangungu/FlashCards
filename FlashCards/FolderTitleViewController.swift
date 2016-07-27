@@ -15,6 +15,11 @@ class FolderTitleViewController: UIViewController {
     
     @IBOutlet weak var flashcardCollectionView: UICollectionView!
     
+    
+    @IBAction func swipeAction(sender: AnyObject) {
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
     let reuseIdentifier = "flashcard"
     // pass folder clicked to flashcard V.C
     
@@ -26,19 +31,19 @@ class FolderTitleViewController: UIViewController {
     //var cards = List<Flashcard>() - replaced by array inside the folder we just passed
     var folder: Folder? 
     
-//    @IBAction func addFlashcardAction(sender: AnyObject) {
-//        
-//        let card = Flashcard()
-//        card.question = ""
-//        card.answer = ""
-//        print("Flashcard created")
-//        
-//        let realm = try! Realm()
-//        try! realm.write(){
-//            folder!.cardArray.append(card)}
-//       // RealmHelper.addCard(card)
-//        flashcardCollectionView.reloadData()
-//    }
+    @IBAction func addFlashcardAction(sender: AnyObject) {
+        
+        let card = Flashcard()
+        card.question = ""
+        card.answer = ""
+        print("Flashcard created")
+        
+        let realm = try! Realm()
+        try! realm.write(){
+            folder!.cardArray.append(card)}
+       // RealmHelper.addCard(card)
+        flashcardCollectionView.reloadData()
+    }
     
     
     @IBAction func shareAction(sender: AnyObject) {
@@ -84,17 +89,19 @@ class FolderTitleViewController: UIViewController {
          // create a new flashcard and populate it with existing content. Else, create a new flashcard with empty fields.
        
             var indexPaths: [NSIndexPath] = flashcardCollectionView.indexPathsForSelectedItems()!
+            
             let card = folder?.cardArray[indexPaths[0].row]
             
             let displayFlashcardViewController = segue.destinationViewController as! FlashcardViewController
+            displayFlashcardViewController.index = indexPaths[0].row
             displayFlashcardViewController.card = card
+            displayFlashcardViewController.folder = folder
             print("Existing flashcard opened")
             
         }
         else if identifier == "newFlashcard"{
             let newFlashcardVC = segue.destinationViewController as!NewFlashcardViewController
             newFlashcardVC.folder = folder
-            
            print("New flashcard")
         }
     

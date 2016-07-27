@@ -16,6 +16,8 @@ class FolderCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     
     // Folder  of data model to be passed to cell
     var folder: Folder?
+    var cellIndex = 0
+    
     
     // Function notifying us that user had tapped return key
     func textFieldShouldReturn(textField: UITextField) -> Bool
