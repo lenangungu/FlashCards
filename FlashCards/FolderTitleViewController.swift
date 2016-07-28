@@ -82,8 +82,9 @@ class FolderTitleViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
        
         // REVIEW!!!!
-        
+        let displayFlashcardViewController = segue.destinationViewController as! FlashcardViewController
         let identifier = segue.identifier
+        
         if identifier == "existingFlashcard"
         {
          // create a new flashcard and populate it with existing content. Else, create a new flashcard with empty fields.
@@ -92,19 +93,19 @@ class FolderTitleViewController: UIViewController {
             
             let card = folder?.cardArray[indexPaths[0].row]
             
-            let displayFlashcardViewController = segue.destinationViewController as! FlashcardViewController
             displayFlashcardViewController.index = indexPaths[0].row
             displayFlashcardViewController.card = card
             displayFlashcardViewController.folder = folder
             print("Existing flashcard opened")
             
         }
+            
         else if identifier == "newFlashcard"{
-            let newFlashcardVC = segue.destinationViewController as!NewFlashcardViewController
-            newFlashcardVC.folder = folder
-           print("New flashcard")
+            
+             displayFlashcardViewController.folder = folder
+            
+            print("New flashcard")
         }
-    
     }
     
     // Preparing the VC to receive an unwind segue

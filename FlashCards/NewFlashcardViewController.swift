@@ -8,69 +8,69 @@
 
 import UIKit
 import RealmSwift
+//
+//class NewFlashcardViewController: UIViewController {
+//
+//    @IBOutlet weak var answerTextView: UITextView!
+//  
+//    @IBOutlet weak var questionTextView: UITextView!
+//    
+//  
+//    
+//     var folder: Folder?
+//    
+//    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        // Do any additional setup after loading the view.
+//    }
+//    
+//    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        let identifier = segue.identifier
+//        if identifier == "saveNewCard"
+//        {
+//            // REVIEW !!!
+//            
+//            //if let card = card{
+//                let newCard = Flashcard()
+//                newCard.question = questionTextView.text ?? " "
+//                newCard.answer = answerTextView.text ?? " "
+//                
+//                //       Debugging step: print("\(newCard.answer) \(newCard.question)")
+//    
+//            
+//            let realm = try! Realm()
+//                   try! realm.write(){
+//                       folder!.cardArray.append(newCard)}
+//            
+//                RealmHelper.addCard(newCard)
+//                print(" Flashcard saved")
+//            
+//
+//    }
+//        
+//        func viewWillAppear(animated: Bool) {
+//            super.viewWillAppear(animated)
+//         
+//            }
+//            
+//    }
+//    
+//    
+//    
 
-class NewFlashcardViewController: UIViewController {
-
-    @IBOutlet weak var answerTextView: UITextView!
-  
-    @IBOutlet weak var questionTextView: UITextView!
-    
-  
-    
-     var folder: Folder?
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let identifier = segue.identifier
-        if identifier == "saveNewCard"
-        {
-            // REVIEW !!!
-            
-            //if let card = card{
-                let newCard = Flashcard()
-                newCard.question = questionTextView.text ?? " "
-                newCard.answer = answerTextView.text ?? " "
-                
-                //       Debugging step: print("\(newCard.answer) \(newCard.question)")
-    
-            
-            let realm = try! Realm()
-                   try! realm.write(){
-                       folder!.cardArray.append(newCard)}
-            
-                RealmHelper.addCard(newCard)
-                print(" Flashcard saved")
-            
-
-    }
-        
-        func viewWillAppear(animated: Bool) {
-            super.viewWillAppear(animated)
-         
-            }
-            
-    }
-    
-    
-    
-    
     
     
     
     
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//        // Dispose of any resources that can be recreated.
+//    }
+//    
 
     /*
     // MARK: - Navigation
@@ -82,4 +82,4 @@ class NewFlashcardViewController: UIViewController {
     }
     */
 
-}
+//}

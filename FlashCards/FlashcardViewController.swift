@@ -17,7 +17,6 @@ class FlashcardViewController: UIViewController {
     @IBOutlet weak var answerTextView: UITextView!
     @IBOutlet var flashcardView: UIView!
     
-    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var containerImage: UIImageView!
     @IBOutlet weak var placeholderTextField: UITextField!
     
@@ -30,10 +29,16 @@ class FlashcardViewController: UIViewController {
     var index: Int?
     
     @IBAction func answerSwipeAction(sender: AnyObject) {
-        containerView.hidden = true
-        containerImage.hidden = true
-        placeholderTextField.hidden = true
-        answerTextLabel.hidden = false 
+        
+        
+        //animate the swipe
+      
+        placeholderTextField.alpha = 0
+        containerImage.alpha = 0
+        UIView.transitionWithView(self.containerImage, duration: 0.5, options: UIViewAnimationOptions.TransitionCurlUp, animations: nil, completion: nil)
+        
+        
+        answerTextLabel.alpha = 0
         
     }
     
@@ -47,13 +52,6 @@ class FlashcardViewController: UIViewController {
         
         
     }
-    
-//    @IBAction func swipeContainerAction(sender: AnyObject) {
-//        
-//        containerView.hidden = true
-//        placeholderTextField.hidden = true
-//        containerImage.hidden = true
-//    }
   
 
     @IBAction func nextButtonAction(sender: AnyObject) {
@@ -64,7 +62,7 @@ class FlashcardViewController: UIViewController {
     
         index = index! + 1
        
-        if count > 1
+        if count > 1 && index < count - 1
         {
             nextPageButton.enabled = true
             let nextCard = cardArray![index!]
@@ -81,9 +79,20 @@ class FlashcardViewController: UIViewController {
            
 
        }
+            // if last card , arrow = done 
+          
         
-        else {nextPageButton.enabled = false }
-    }
+        else
+        {
+            nextPageButton.enabled = false
+            
+            
+        }
+//
+        //{nextPageButton.enabled = false
+            
+       // nextPageButton.style = .Done  }
+        }
     
     
     
@@ -98,7 +107,8 @@ class FlashcardViewController: UIViewController {
         //        let folderTitleViewController = segue.destinationViewController as! FolderTitleViewController
         
         let identifier = segue.identifier
-        
+      
+
         if identifier == "Save"
         {
             // REVIEW !!!
@@ -114,7 +124,25 @@ class FlashcardViewController: UIViewController {
                  print(" Flashcard saved")
                 
             }
+            
+            else {
+                let newCard = Flashcard()
+                newCard.question = questionTextView.text ?? " "
+                newCard.answer = answerTextView.text ?? " "
+                
+                //       Debugging step: print("\(newCard.answer) \(newCard.question)")
+                
+                
+                let realm = try! Realm()
+                try! realm.write(){
+                    folder!.cardArray.append(newCard)}
+                
+                RealmHelper.addCard(newCard)
+                print(" Flashcard saved")
+            }
+            
         }
+        
         
        
         }
@@ -126,6 +154,8 @@ class FlashcardViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
         
         // Do any additional setup after loading the view.
     
@@ -162,15 +192,23 @@ class FlashcardViewController: UIViewController {
         // if card != nil ....
         if let card = card {
             questionTextView.text = card.question
-            answerTextView.text = card.answer
+            answerTextView.text = card.answer 
             
         }
-//        else{
-//            // Setting fields of newCards to empty strings
-//            questionTextView.text = " "
-//            answerTextView.text = " "
-//    
-//        }
+        else{
+            // Setting fields of newCards to empty strings
+            questionTextView.text = " "
+            answerTextView.text = " "
+            
+           // Alpha = 0 makes the answer text view accessible but .hidden does not, it just hides the element 
+            
+            containerImage.alpha = 0
+            placeholderTextField.alpha = 0
+            answerTextLabel.alpha = 0
+            nextPageButton.enabled = false
+            shareButton.enabled = false
+
+        }
     
     
     }

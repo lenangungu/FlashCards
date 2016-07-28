@@ -141,7 +141,6 @@
 				8A2BAE511D354572002F3AE8 /* AppDelegate.swift */,
 				8A2BAE531D354572002F3AE8 /* FoldersViewController.swift */,
 				8A2BAEF51D3AC726002F3AE8 /* FolderTitleViewController.swift */,
-				8A2BAF011D3C82DB002F3AE8 /* FlashcardViewController.swift */,
 				8A2BAE551D354572002F3AE8 /* Main.storyboard */,
 				8A2BAE581D354572002F3AE8 /* Assets.xcassets */,
 				8A2BAE5A1D354572002F3AE8 /* LaunchScreen.storyboard */,
@@ -150,6 +149,7 @@
 				8A2BAEF91D3B40A3002F3AE8 /* FlashcardCollectionViewCell.swift */,
 				8A2BAEFB1D3C41C5002F3AE8 /* Flashcard.swift */,
 				8A3C82DA1D3E9F1F00846BC2 /* Folder.swift */,
+				8A2BAF011D3C82DB002F3AE8 /* FlashcardViewController.swift */,
 				8A3C82DC1D457D2600846BC2 /* NewFlashcardViewController.swift */,
 			);
 			path = FlashCards;
