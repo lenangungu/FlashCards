@@ -62,7 +62,7 @@ class FlashcardViewController: UIViewController {
     
         index = index! + 1
        
-        if count > 1 && index < count - 1
+        if count > 1 && index < count
         {
             nextPageButton.enabled = true
             let nextCard = cardArray![index!]
@@ -82,10 +82,9 @@ class FlashcardViewController: UIViewController {
             // if last card , arrow = done 
           
         
-        else
+        else 
         {
             nextPageButton.enabled = false
-            
             
         }
 //

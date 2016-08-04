@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wh4-q9-rL8">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -193,18 +192,6 @@
         <!--FlashcardViewController-->
         <scene sceneID="sKw-bB-QPl">
             <objects>
-                <exit id="XOc-j8-Qkx" userLabel="Exit" sceneMemberID="exit"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RKN-6H-VJ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="k9X-MH-330" userLabel="Back Swipe Gesture Recognizer">
-                    <connections>
-                        <action selector="swipeAction:" destination="LOn-4g-klq" id="lHX-9i-V9l"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="left" id="OmF-05-FQM" userLabel="Foward Swipe Gesture Recognizer">
-                    <connections>
-                        <action selector="fowardSwipeAction:" destination="LOn-4g-klq" id="ypK-w5-0Vf"/>
-                    </connections>
-                </swipeGestureRecognizer>
                 <viewController title="FlashcardViewController" id="LOn-4g-klq" customClass="FlashcardViewController" customModule="FlashCards" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OXT-cM-PhV"/>
@@ -410,6 +397,18 @@
                         <outlet property="shareButton" destination="V9u-Bg-Hyn" id="lgv-K0-xL0"/>
                     </connections>
                 </viewController>
+                <exit id="XOc-j8-Qkx" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RKN-6H-VJ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="k9X-MH-330" userLabel="Back Swipe Gesture Recognizer">
+                    <connections>
+                        <action selector="swipeAction:" destination="LOn-4g-klq" id="lHX-9i-V9l"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="OmF-05-FQM" userLabel="Foward Swipe Gesture Recognizer">
+                    <connections>
+                        <action selector="fowardSwipeAction:" destination="LOn-4g-klq" id="ypK-w5-0Vf"/>
+                    </connections>
+                </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="up" id="KIe-zV-M2k" userLabel="Answer Swipe Gesture Recognizer">
                     <connections>
                         <action selector="answerSwipeAction:" destination="LOn-4g-klq" id="0ZC-1t-l7g"/>
