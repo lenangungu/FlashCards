@@ -15,6 +15,9 @@ class FolderTitleViewController: UIViewController {
     
     @IBOutlet weak var flashcardCollectionView: UICollectionView!
     
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var playButton: UIBarButtonItem!
+    
     let reuseIdentifier = "flashcard"
     // pass folder clicked to flashcard V.C
     
@@ -24,27 +27,28 @@ class FolderTitleViewController: UIViewController {
     
    // var cards: Results<Flashcard>! // Dont need..drop all cards in passed folder's array (of cards)
     //var cards = List<Flashcard>() - replaced by array inside the folder we just passed
-    var folder: Folder? 
+    var folder: Folder?
+    var selectedFolders = [Folder]() 
     
-    @IBAction func addFlashcardAction(sender: AnyObject) {
-        
-        let card = Flashcard()
-        card.question = ""
-        card.answer = ""
-        print("Flashcard created")
-        
-        let realm = try! Realm()
-        try! realm.write(){
-            folder!.cardArray.append(card)}
-       // RealmHelper.addCard(card)
-        flashcardCollectionView.reloadData()
-    }
-    
+//    @IBAction func addFlashcardAction(sender: AnyObject) {
+//        
+//        let card = Flashcard()
+//        card.question = ""
+//        card.answer = ""
+//        print("Flashcard created")
+//        
+//        let realm = try! Realm()
+//        try! realm.write(){
+//            folder!.cardArray.append(card)}
+//       // RealmHelper.addCard(card)
+//        flashcardCollectionView.reloadData()
+//    }
+//    
     
     @IBAction func shareAction(sender: AnyObject) {
         
         if folder?.cardArray.count > 0 {
-         
+         shareButton.enabled = true
             // come back...might want to use nil coalescing operator
         let activityVC = UIActivityViewController(activityItems: [(folder?.cardArray)!], applicationActivities: nil)
             
@@ -52,11 +56,14 @@ class FolderTitleViewController: UIViewController {
 //            activityVC.excludedActivityTypes = [UIActivityTypePostToTwitter,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypePostToTencentWeibo, UIActivityTypePostToWeibo]
         self.presentViewController(activityVC, animated: true, completion: nil)
      }
+//        else {shareButton.enabled = false} 
     }
    
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = editButtonItem()
        // cards = RealmHelper.retrieveFlashcard()
         
         // Store all cards in array of the foler we passed
@@ -72,6 +79,17 @@ class FolderTitleViewController: UIViewController {
         
         folderTitleBar.title = (folder!.title)
         flashcardCollectionView.reloadData()
+        
+        if folder?.cardArray.count < 1
+        {
+            playButton.enabled = false
+            shareButton.enabled = false
+        }
+        else {
+            playButton.enabled = true
+            shareButton.enabled = true 
+        }
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -79,20 +97,46 @@ class FolderTitleViewController: UIViewController {
         // REVIEW!!!!
         
         let identifier = segue.identifier
-        if identifier == "existingFlashcard"
+        if identifier == "quizFlashcard"
         {
          // create a new flashcard and populate it with existing content. Else, create a new flashcard with empty fields.
-       
-            var indexPaths: [NSIndexPath] = flashcardCollectionView.indexPathsForSelectedItems()!
-            let card = folder?.cardArray[indexPaths[0].row]
+   
             
-            let displayFlashcardViewController = segue.destinationViewController as! FlashcardViewController
-            displayFlashcardViewController.card = card
-            print("Existing flashcard opened")
+             let quizFlashcardViewController = segue.destinationViewController as! QuizFlashcardViewController
             
-        }
+              quizFlashcardViewController.folder = folder
+             let count = folder?.cardArray.count
+             let rand = Int(arc4random_uniform((UInt32(count! - 1))))
+             quizFlashcardViewController.card = folder!.cardArray[rand]
+//              quizFlashcardViewController.card = folder!.cardArray[0]
+            
+            
+           
+//            displayFlashcardViewController.card = card
+            
+                print("Quiz opened")}
+           
+            
+        
         else if identifier == "newFlashcard"{
+            
+            let newFlashcardViewController = segue.destinationViewController as! FlashcardViewController
+            newFlashcardViewController.folder = folder 
            print("New flashcard")
+        }
+        
+        else if identifier == "existingFlashcard"
+        {
+            // create a new flashcard and populate it with existing content. Else, create a new flashcard with empty fields.
+            
+                       var indexPaths: [NSIndexPath] = flashcardCollectionView.indexPathsForSelectedItems()!
+                       let card = folder?.cardArray[indexPaths[0].row]
+            
+            let displayFlashcardViewController = segue.destinationViewController as! SingleFlashcardViewController
+            
+            displayFlashcardViewController.card = card 
+            
+            //            displayFlashcardViewController.card = card
         }
     
     }
@@ -144,4 +188,38 @@ extension FolderTitleViewController: UICollectionViewDataSource, UICollectionVie
         // Dispose of any resources that can be recreated.
     }
 
+}
+
+extension FolderTitleViewController: UICollectionViewDelegateFlowLayout {
+    // Asks the delegate for the size of the specified item’s cell. cvWidth is the global var I created in the collectionView IBOutlet
+    // RETURN: The width and height of the specified item. Both values must be greater than 0.
+  
+    // Asks the delegate for the margins to apply to content in the specified section.
+    // RETURN: The margins to apply to items in the section.
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 20, left: 5, bottom: 0, right: 5)
+    }
+    
+    // Asks the delegate for the spacing between successive rows or columns of a section.
+    // RETURN: The minimum space (measured in points) to apply between successive lines in a section.
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return  10  }
+    
+    // Asks the delegate for the spacing between successive items in the rows or columns of a section.
+    // RETURN: The minimum space (measured in points) to apply between successive items in the lines of a section.
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return -15
+    }
+    
+    // Asks the delegate for the size of the header view in the specified section.
+    // RETURN: The size of the header. If you return a value of size (0, 0), no header is added.
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: 0, height: 0)
+    }
+    
+    // Asks the delegate for the size of the footer view in the specified section.
+    // RETURN: The size of the footer. If you return a value of size (0, 0), no footer is added.
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: 0, height: 0)
+}
 }

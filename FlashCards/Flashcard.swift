@@ -14,4 +14,6 @@ class Flashcard: Object {
     // have to be dynamic to connect the properties to Realm
     dynamic var question = ""
     dynamic var answer = ""
+    dynamic var correct = 0
+    dynamic var wrong = 0 
 }

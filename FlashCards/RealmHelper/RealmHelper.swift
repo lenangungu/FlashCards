@@ -59,6 +59,7 @@ class RealmHelper {
         let realm = try! Realm()
         try! realm.write() {
             folderToBeUpdated.title = newFolder.title
+            print("update folder succeeded")
             
         }
     }
@@ -71,7 +72,8 @@ class RealmHelper {
 //        Realm.Configuration.defaultConfiguration = config
      
         let realm = try! Realm()
-        return realm.objects(Folder)
+        return realm.objects(Folder).sorted("dateAdded", ascending: true)
+        //	.sorted("title" , ascending: false)
     }
     //static methods will go here
 }
