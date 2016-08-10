@@ -20,6 +20,7 @@ class QuizFlashcardViewController: UIViewController {
     
     @IBOutlet weak var wrongButton: UIButton!
     
+    @IBOutlet weak var doneButton: UIButton!
    
     
     var card: Flashcard?
@@ -29,7 +30,7 @@ class QuizFlashcardViewController: UIViewController {
 //    var ll : [List<Flashcard>] = []
     
     var index = 0
-  
+   let LbeigeColor = UIColor(red: 245.0/255.0, green: 255.0/255.0, blue: 198.0/255.0, alpha: 1.0)
     
     
     
@@ -108,7 +109,11 @@ class QuizFlashcardViewController: UIViewController {
         //if loop == (count - 1)
         if index == (count - 1)
            
-        {skipButton.enabled = false}
+        { skipButton.alpha = 0
+           
+            //skipButton.enabled = false
+           // skipButton.backgroundColor = UIColor.grayColor()
+        }
         
         
        
@@ -152,9 +157,14 @@ class QuizFlashcardViewController: UIViewController {
     }
         else if index == (count)
         {
-            correctButton.enabled = false
-            wrongButton.enabled = false
+            correctButton.alpha = 0
+            wrongButton.alpha = 0
            // quizCardArray = cardArray
+            
+            answerTextView.alpha = 0
+            questionTextView.alpha = 0
+            doneButton.alpha = 1
+            
             print("wrong array is \( folder!.cardArray)")
             print("quizArray rest: \(quizCardArray)")
             
@@ -201,22 +211,30 @@ class QuizFlashcardViewController: UIViewController {
         
        
     }
-        else if index == (count)
-        {
-            correctButton.enabled = false
-            wrongButton.enabled = false
-            print(quizCardArray)
-          //  quizCardArray = cardArray
-            
-            print("wrong array is \( folder!.cardArray)")
-            print("quizArray rest: \(quizCardArray)")
-            
-        }
+        // Count will keep on increasing if you get a question wrong - Quiz will never end on a question gotten wrong
+//        else if index == (count)
+//        {
+//            correctButton.alpha = 0
+//            wrongButton.alpha = 0
+//            print(quizCardArray)
+//          //  quizCardArray = cardArray
+//            answerTextView.tintColor = UIColor.redColor()
+//            answerTextView.textColor = UIColor.redColor()
+//            doneButton.alpha = 1
+//            
+//            print("wrong array is \( folder!.cardArray)")
+//            print("quizArray rest: \(quizCardArray)")
+//            
+//        }
         
       
         }
     
     
+    @IBAction func doneButtonAction(sender: AnyObject) {
+        print("Quiz done")
+        navigationController?.popToRootViewControllerAnimated(true)
+    }
         
     // Was for completed button action
 //        cardArray = folder?.cardArray
@@ -310,10 +328,9 @@ class QuizFlashcardViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        doneButton.alpha = 0
         print(quizCardArray)
         // Creating card color and reseting the answer text view color
-        let LbeigeColor = UIColor(red: 245.0/255.0, green: 255.0/255.0, blue: 198.0/255.0, alpha: 1.0)
         
         answerTextView.backgroundColor = LbeigeColor
         correctButton.enabled = true

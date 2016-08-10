@@ -197,16 +197,22 @@
                                     <segue destination="LOn-4g-klq" kind="show" identifier="newFlashcard" id="cLU-yS-1mm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0G-cA-Gyi">
+                                <rect key="frame" x="261" y="528" width="79" height="22"/>
+                                <state key="normal" image="Group"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Egh-f7-l39" firstAttribute="height" secondItem="R2g-MV-A7d" secondAttribute="height" id="2Gh-MK-4pv"/>
                             <constraint firstItem="cBZ-c2-aep" firstAttribute="leading" secondItem="Egh-f7-l39" secondAttribute="trailing" constant="-60" id="Afk-p1-3q0"/>
+                            <constraint firstItem="z0G-cA-Gyi" firstAttribute="bottom" secondItem="Egh-f7-l39" secondAttribute="bottom" constant="-50" id="BE2-Mp-ZVw"/>
                             <constraint firstItem="Egh-f7-l39" firstAttribute="top" secondItem="R2g-MV-A7d" secondAttribute="top" id="J1g-1Q-FDG"/>
                             <constraint firstItem="Egh-f7-l39" firstAttribute="leading" secondItem="R2g-MV-A7d" secondAttribute="leading" id="PN1-hh-3f9"/>
                             <constraint firstItem="cBZ-c2-aep" firstAttribute="centerX" secondItem="Egh-f7-l39" secondAttribute="centerX" id="V7H-R0-0lK"/>
                             <constraint firstItem="Egh-f7-l39" firstAttribute="width" secondItem="R2g-MV-A7d" secondAttribute="width" id="W41-Gl-tgh"/>
                             <constraint firstItem="cBZ-c2-aep" firstAttribute="bottom" secondItem="Egh-f7-l39" secondAttribute="bottom" constant="-45" id="WTb-b2-sZT"/>
+                            <constraint firstItem="z0G-cA-Gyi" firstAttribute="centerX" secondItem="Egh-f7-l39" secondAttribute="centerX" id="kHR-GK-skf"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -216,7 +222,7 @@
                     </view>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="JvC-hA-8Fh"/>
-                        <barButtonItem title="Quiz" id="KHl-pZ-pog">
+                        <barButtonItem image="Group" id="KHl-pZ-pog">
                             <color key="tintColor" red="0.20784313725490197" green="0.41176470588235292" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="playButtonAction:" destination="3Gu-tF-7GM" id="cZ7-kt-JDj"/>
@@ -444,10 +450,19 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgW-ef-5CA">
+                                <rect key="frame" x="230" y="269" width="141" height="63"/>
+                                <state key="normal" image="Group 2"/>
+                                <connections>
+                                    <action selector="doneButtonAction:" destination="hIU-fJ-a9W" eventType="touchUpInside" id="WUL-GJ-sIz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549999996" green="0.95686274510000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="lgW-ef-5CA" firstAttribute="centerX" secondItem="eWb-3K-eeQ" secondAttribute="centerX" id="3bj-JA-ho3"/>
+                            <constraint firstItem="lgW-ef-5CA" firstAttribute="centerY" secondItem="eWb-3K-eeQ" secondAttribute="centerY" id="A1T-RE-R3a"/>
                             <constraint firstItem="dFQ-Bb-M33" firstAttribute="top" secondItem="arM-jT-C4X" secondAttribute="bottom" constant="344" id="LtD-EU-moO"/>
                             <constraint firstItem="SRz-XI-Fnj" firstAttribute="top" secondItem="arM-jT-C4X" secondAttribute="bottom" constant="106" id="NwV-wF-ZQO"/>
                             <constraint firstItem="dFQ-Bb-M33" firstAttribute="leading" secondItem="eWb-3K-eeQ" secondAttribute="leadingMargin" constant="50" id="PP8-QQ-h2Y"/>
@@ -476,6 +491,7 @@
                     <connections>
                         <outlet property="answerTextView" destination="SRz-XI-Fnj" id="A7U-SK-6gG"/>
                         <outlet property="correctButton" destination="dFQ-Bb-M33" id="s8c-L0-l6V"/>
+                        <outlet property="doneButton" destination="lgW-ef-5CA" id="mwE-mh-Spz"/>
                         <outlet property="questionTextView" destination="Ayf-jY-u1v" id="tsQ-Iq-bsh"/>
                         <outlet property="skipButton" destination="A3z-UM-es5" id="Bxy-aL-zBA"/>
                         <outlet property="wrongButton" destination="xYf-sn-dZE" id="qml-V8-aq9"/>
@@ -614,6 +630,8 @@
     </scenes>
     <resources>
         <image name="Folder-4" width="40" height="32"/>
+        <image name="Group" width="79" height="20"/>
+        <image name="Group 2" width="141" height="63"/>
         <image name="Slice 1" width="42" height="47"/>
     </resources>
     <inferredMetricsTieBreakers>

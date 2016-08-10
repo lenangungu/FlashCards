@@ -223,23 +223,23 @@ extension FoldersViewController: UICollectionViewDataSource, UICollectionViewDel
 //    folder = folders[indexPath.item]
     }
     
-    
-    override func setEditing(editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-        if editing
-        {
-            print("hi")
-            foldersCollectionView.allowsMultipleSelection = true
-            foldersCollectionView.selectItemAtIndexPath(nil, animated: true, scrollPosition: .None)
-            selectedFolders.removeAll(keepCapacity: false)
-           // selectedFolders.append(folder[indexPath])
-            
-        }
-        else {
-            print("bye")
-            foldersCollectionView.allowsMultipleSelection = false
-        }
-    }
+//    
+//    override func setEditing(editing: Bool, animated: Bool) {
+//        super.setEditing(editing, animated: animated)
+//        if editing
+//        {
+//            print("hi")
+//            foldersCollectionView.allowsMultipleSelection = true
+//            foldersCollectionView.selectItemAtIndexPath(nil, animated: true, scrollPosition: .None)
+//            selectedFolders.removeAll(keepCapacity: false)
+//           // selectedFolders.append(folder[indexPath])
+//            
+//        }
+//        else {
+//            print("bye")
+//            foldersCollectionView.allowsMultipleSelection = false
+//        }
+//    }
 
     
    
