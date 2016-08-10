@@ -28,7 +28,22 @@ class FolderTitleViewController: UIViewController {
    // var cards: Results<Flashcard>! // Dont need..drop all cards in passed folder's array (of cards)
     //var cards = List<Flashcard>() - replaced by array inside the folder we just passed
     var folder: Folder?
-    var selectedFolders = [Folder]() 
+    var selectedCardIndex: [Int]?
+    var del: UIBarButtonItem?
+    
+    //HERE!! 
+    var cardEditing: Bool = false{
+        didSet{
+            flashcardCollectionView.allowsMultipleSelection = editing
+            flashcardCollectionView.selectItemAtIndexPath(nil, animated: true, scrollPosition: .None)
+//            let deleteButton = navigationItem.rightBarButtonItem
+            if cardEditing {
+                print("editing")
+                navigationItem.setRightBarButtonItem(del, animated: true)
+            }
+            else{print("not editing")}
+        }
+    }
     
 //    @IBAction func addFlashcardAction(sender: AnyObject) {
 //        
@@ -63,7 +78,7 @@ class FolderTitleViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = editButtonItem()
+      //  navigationItem.rightBarButtonItem = editButtonItem()
        // cards = RealmHelper.retrieveFlashcard()
         
         // Store all cards in array of the foler we passed
@@ -72,7 +87,10 @@ class FolderTitleViewController: UIViewController {
         
         //        print("\(cards)")
         // Do any additional setup after loading the view.
+         let deleteButton = navigationItem.rightBarButtonItem
+        del = deleteButton
     }
+
     
     override func viewWillAppear(animated: Bool) {
         // reloading the model before it appears
@@ -83,11 +101,11 @@ class FolderTitleViewController: UIViewController {
         if folder?.cardArray.count < 1
         {
             playButton.enabled = false
-            shareButton.enabled = false
+           // shareButton.enabled = false
         }
         else {
             playButton.enabled = true
-            shareButton.enabled = true 
+          //  shareButton.enabled = true
         }
         
     }
@@ -105,11 +123,15 @@ class FolderTitleViewController: UIViewController {
              let quizFlashcardViewController = segue.destinationViewController as! QuizFlashcardViewController
             
               quizFlashcardViewController.folder = folder
-             let count = folder?.cardArray.count
-             let rand = Int(arc4random_uniform((UInt32(count! - 1))))
-             quizFlashcardViewController.card = folder!.cardArray[rand]
-//              quizFlashcardViewController.card = folder!.cardArray[0]
+      //       let count = folder?.cardArray.count
+            // let rand = Int(arc4random_uniform((UInt32(count! - 1))))
+        //     quizFlashcardViewController.card = folder!.cardArray[rand]
             
+            
+             // quizFlashcardViewController.card = folder!.cardArray[0]
+            quizFlashcardViewController.cardArray = folder!.cardArray
+            quizFlashcardViewController.quizCardArray = folder!.quizCardArray
+            quizFlashcardViewController.card = folder!.quizCardArray[0]
             
            
 //            displayFlashcardViewController.card = card
@@ -134,7 +156,8 @@ class FolderTitleViewController: UIViewController {
             
             let displayFlashcardViewController = segue.destinationViewController as! SingleFlashcardViewController
             
-            displayFlashcardViewController.card = card 
+            displayFlashcardViewController.card = card
+            
             
             //            displayFlashcardViewController.card = card
         }
@@ -179,6 +202,10 @@ extension FolderTitleViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         print (" Flashcard \(indexPath.item) was selected")
+        if cardEditing{
+           let cardIndex = indexPath.item
+            selectedCardIndex?.append(cardIndex)
+        }
     }
     
 
@@ -196,8 +223,14 @@ extension FolderTitleViewController: UICollectionViewDelegateFlowLayout {
   
     // Asks the delegate for the margins to apply to content in the specified section.
     // RETURN: The margins to apply to items in the section.
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        //print(collectionView.frame.width)
+        //print(collectionView.frame.height)
+        return CGSize(width: (flashcardCollectionView.frame.width / 3.3), height: (flashcardCollectionView.frame.width/5.0))
+    }
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 5, bottom: 0, right: 5)
+        return UIEdgeInsets(top: 25, left: 5, bottom: 25, right: 5)
     }
     
     // Asks the delegate for the spacing between successive rows or columns of a section.

@@ -25,8 +25,15 @@ class QuizFlashcardViewController: UIViewController {
     var card: Flashcard?
     var folder: Folder?
     var cardArray: List<Flashcard>?
+    var quizCardArray: List<Flashcard>?
+//    var ll : [List<Flashcard>] = []
+    
     var index = 0
-    var loop = 0
+  
+    
+    
+    
+   // var wrong_rightIndex: Int?
     
     
     @IBAction func shareAction(sender: AnyObject) {
@@ -59,24 +66,31 @@ class QuizFlashcardViewController: UIViewController {
    
     @IBAction func skipButtonAction(sender: AnyObject) {
       
-        cardArray = folder?.cardArray
-        let count = cardArray!.count
-       let rand = Int(arc4random_uniform(UInt32(count - 1) + 1))
-    // let rand = Int(arc4random_uniform((UInt32(count - 1))))
-        print(rand)
+        quizCardArray = folder?.quizCardArray
+       // cardArray = folder?.cardArray
         
-        loop = loop + 1
+        let count = quizCardArray!.count
+        //let count = cardArray!.count
+     
+     //  let rand = Int(arc4random_uniform(UInt32(count - 1) + 1))
+    
+        print(rand)
+
+        
+    //    loop = loop + 1
         
        // index = index + rand
         print("index is \(index)")
-//        index = index + 1
+       index = index + 1
         print ("count is \(count)")
         
 //        if count > 1 && index < count
-            if count > 1 && loop < count
+            if count > 1 && index < count
         {
             skipButton.enabled = true
-            let nextCard = cardArray![rand]
+            
+            let nextCard = quizCardArray![index]
+            //let nextCard = cardArray![index]
             self.card = nextCard
             // Debug step
             print("\(card!.question)")
@@ -91,7 +105,8 @@ class QuizFlashcardViewController: UIViewController {
         }
             // if last card , arrow = done
             
-        if loop == (count - 1)
+        //if loop == (count - 1)
+        if index == (count - 1)
            
         {skipButton.enabled = false}
         
@@ -102,16 +117,19 @@ class QuizFlashcardViewController: UIViewController {
     
     
     @IBAction func correctButtonAction(sender: AnyObject) {
-        
+      //  quizCardArray = folder?.quizCardArray
+       
         answerTextView.backgroundColor = UIColor.greenColor()
         
         let realm = try! Realm()
         try! realm.write() {
             card?.correct += 1
         }
+    
+       // cardArray = (folder?.cardArray)
         
-        cardArray = folder?.cardArray
-        let count = cardArray!.count
+        //let count = cardArray!.count
+         let count = quizCardArray!.count
         // generate randomw numbers from 1 to highest index - 1
         
         index = index + 1
@@ -122,8 +140,8 @@ class QuizFlashcardViewController: UIViewController {
         correctButton.enabled = false
         wrongButton.enabled = false
     
-        
-        let nextCard = cardArray![index]
+        let nextCard = quizCardArray![index]
+        //let nextCard = cardArray![index]
         self.card = nextCard
         
         performSelector(#selector(viewWillAppear), withObject: view, afterDelay: 0.5)
@@ -136,20 +154,36 @@ class QuizFlashcardViewController: UIViewController {
         {
             correctButton.enabled = false
             wrongButton.enabled = false
+           // quizCardArray = cardArray
+            print("wrong array is \( folder!.cardArray)")
+            print("quizArray rest: \(quizCardArray)")
             
         }
+       
     }
     @IBAction func wrongButtonAction(sender: AnyObject) {
        
+        //quizCardArray = folder?.quizCardArray
+        
+//        let realm = try! Realm()
+//        try! realm.write() {
+//            ll = toArray(List<Flashcard>)
+        // add the card index to wrongs to increase how many times card shows up
+        let realm = try! Realm()
+        try! realm.write() {
+        quizCardArray!.append(card!)
+           
+        }
         answerTextView.backgroundColor = UIColor.redColor()
         
-        let realm = try! Realm()
+     //   let realm = try! Realm()
         try! realm.write() {
             card?.wrong += 1
         }
         
-        cardArray = folder?.cardArray
-        let count = cardArray!.count
+       // cardArray = folder?.cardArray
+        //let count = cardArray!.count
+         let count = quizCardArray!.count
         index = index + 1
         
         
@@ -159,10 +193,11 @@ class QuizFlashcardViewController: UIViewController {
         correctButton.enabled = false
         wrongButton.enabled = false
         
-         let nextCard = cardArray![index]
+        let nextCard = quizCardArray![index]
+//         let nextCard = cardArray![index]
          self.card = nextCard
         
-         performSelector(#selector(viewWillAppear), withObject: view, afterDelay: 1.5)
+         performSelector(#selector(viewWillAppear), withObject: view, afterDelay: 0.5)
         
        
     }
@@ -170,12 +205,19 @@ class QuizFlashcardViewController: UIViewController {
         {
             correctButton.enabled = false
             wrongButton.enabled = false
+            print(quizCardArray)
+          //  quizCardArray = cardArray
+            
+            print("wrong array is \( folder!.cardArray)")
+            print("quizArray rest: \(quizCardArray)")
             
         }
-    }
+        
+      
+        }
     
     
-    
+        
     // Was for completed button action
 //        cardArray = folder?.cardArray
 //        let count = cardArray!.count
@@ -209,7 +251,16 @@ class QuizFlashcardViewController: UIViewController {
 //        
 //      
 //    }
-    
+//    func toArray<Flashcard>(ofType: Flashcard.Type) -> [Flashcard] {
+//        var array = [Flashcard]()
+//        for i in quizCardArray! {
+//            if let result = i as? Flashcard {
+//                array.append(result)
+//            }
+//        }
+//        
+//        return array
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad() 
@@ -260,6 +311,7 @@ class QuizFlashcardViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        print(quizCardArray)
         // Creating card color and reseting the answer text view color
         let LbeigeColor = UIColor(red: 245.0/255.0, green: 255.0/255.0, blue: 198.0/255.0, alpha: 1.0)
         
@@ -271,8 +323,10 @@ class QuizFlashcardViewController: UIViewController {
         wrongButton.alpha = 0
         skipButton.alpha = 1
 //        
-        cardArray = folder?.cardArray
-        let count = cardArray!.count
+//        cardArray = folder?.cardArray
+//        let count = cardArray!.count
+        quizCardArray = folder?.quizCardArray
+        let count = quizCardArray!.count
         if count == 1
         {skipButton.enabled = false}
 //       // let card = folder!.cardArray[0]
@@ -301,6 +355,18 @@ class QuizFlashcardViewController: UIViewController {
 }
 
 
+//extension Results {
+//    func toArray<Flashcard>(ofType: Flashcard.Type) -> [Flashcard] {
+//        var array = [Flashcard]()
+//        for i in 0 ..< count {
+//            if let result = self[i] as? Flashcard {
+//                array.append(result)
+//            }
+//        }
+//        
+//        return array
+//    }
+//}
 
     /*
     // MARK: - Navigation

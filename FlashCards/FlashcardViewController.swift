@@ -19,6 +19,7 @@ class FlashcardViewController: UIViewController {
     
     var card: Flashcard?
     var folder: Folder?
+   
 //    var folderVC : UIViewController!
     
     @IBAction func saveButtonAction(sender: AnyObject) {
@@ -35,7 +36,11 @@ class FlashcardViewController: UIViewController {
             newCard.answer = answerTextView.text
             let realm = try! Realm()
             try! realm.write(){
-                folder?.cardArray.append(newCard)}
+                folder?.cardArray.append(newCard)
+            }
+            // This is for the duplicate of the cardArray
+            try! realm.write(){
+                folder?.quizCardArray.append(newCard)}
             //        folder?.cardArray.append(newCard)
             //
             RealmHelper.addCard(newCard)
@@ -49,6 +54,7 @@ class FlashcardViewController: UIViewController {
     @IBAction func cancelButtonAction(sender: AnyObject) {
         
         navigationController?.popViewControllerAnimated(true)
+ 
     }
     
 //    @IBAction func deleteButtonAction(sender: AnyObject) {

@@ -24,6 +24,7 @@ class FoldersViewController: UIViewController, UITextFieldDelegate  {
     var folder: Folder?
     let resuseIdentifier = "folder"
     
+    var selectedFolders = [Folder]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,10 @@ class FoldersViewController: UIViewController, UITextFieldDelegate  {
         //Edit button implementation
         
         setEditing(false, animated: false)
-        navigationItem.rightBarButtonItem = editButtonItem()
+        
+        // from here!!
+        
+       // navigationItem.rightBarButtonItem = editButtonItem()
 //       foldersCollectionView.allowsMultipleSelection = true
         
 //        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: FolderCollectionViewCell(), action: #selector(FolderCollectionViewCell.textFieldShouldReturn))
@@ -43,6 +47,8 @@ class FoldersViewController: UIViewController, UITextFieldDelegate  {
         
        
     }
+    
+
     
     override func viewWillAppear(animated: Bool) {
        
@@ -223,15 +229,20 @@ extension FoldersViewController: UICollectionViewDataSource, UICollectionViewDel
         if editing
         {
             print("hi")
-            foldersCollectionView.allowsMultipleSelection = true 
-            
+            foldersCollectionView.allowsMultipleSelection = true
+            foldersCollectionView.selectItemAtIndexPath(nil, animated: true, scrollPosition: .None)
+            selectedFolders.removeAll(keepCapacity: false)
+           // selectedFolders.append(folder[indexPath])
             
         }
-        else {print("bye")
-        foldersCollectionView.allowsMultipleSelection = false}
+        else {
+            print("bye")
+            foldersCollectionView.allowsMultipleSelection = false
+        }
     }
 
     
+   
  
 }
 
@@ -252,7 +263,7 @@ extension FoldersViewController: UICollectionViewDelegateFlowLayout {
     // Asks the delegate for the margins to apply to content in the specified section.
     // RETURN: The margins to apply to items in the section.
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: -30, left: 15, bottom: 60, right: 0)
+        return UIEdgeInsets(top: -40, left: 15, bottom: 90, right: 0)
     }
     
     // Asks the delegate for the spacing between successive rows or columns of a section.

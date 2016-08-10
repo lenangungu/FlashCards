@@ -35,9 +35,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="98"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Folder-48" translatesAutoresizingMaskIntoConstraints="NO" id="IcM-o6-rPL">
-                                                    <rect key="frame" x="10" y="0.0" width="62" height="62"/>
-                                                </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QV6-bN-07A">
                                                     <rect key="frame" x="4" y="60" width="72" height="30"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.86311961206896548" colorSpace="calibratedRGB"/>
@@ -47,6 +44,9 @@
                                                         <outlet property="delegate" destination="FKZ-AB-yUJ" id="Cq7-5W-5TD"/>
                                                     </connections>
                                                 </textField>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Folder-4" translatesAutoresizingMaskIntoConstraints="NO" id="IcM-o6-rPL">
+                                                    <rect key="frame" x="13" y="8" width="54" height="44"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -75,7 +75,7 @@
                                     <constraint firstAttribute="height" constant="50" id="7D1-fu-Qls"/>
                                     <constraint firstAttribute="width" constant="60" id="p0Y-9o-Nf6"/>
                                 </constraints>
-                                <state key="normal" image="+ button">
+                                <state key="normal" image="Slice 1">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -189,7 +189,7 @@
                                     <constraint firstAttribute="height" constant="50" id="KqW-ay-mnn"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="1" minY="1" maxX="1" maxY="1"/>
-                                <state key="normal" image="+ button">
+                                <state key="normal" image="Slice 1">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -223,11 +223,6 @@
                                 <segue destination="hIU-fJ-a9W" kind="show" identifier="quizFlashcard" id="kLO-q1-z6y"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem systemItem="action" id="sAQ-vS-p76">
-                            <connections>
-                                <action selector="shareAction:" destination="3Gu-tF-7GM" id="O2x-Rg-gG2"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="KSa-3N-9Hn"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Folder Title" id="VQM-5O-fSZ"/>
@@ -235,7 +230,6 @@
                         <outlet property="flashcardCollectionView" destination="Egh-f7-l39" id="3UJ-SU-5fZ"/>
                         <outlet property="folderTitleBar" destination="VQM-5O-fSZ" id="32p-v6-HHe"/>
                         <outlet property="playButton" destination="KHl-pZ-pog" id="DaF-jz-Mjp"/>
-                        <outlet property="shareButton" destination="sAQ-vS-p76" id="PYj-dH-2I6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L8f-PA-DrL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -595,8 +589,6 @@
                                 <action selector="deleteButtonAction:" destination="XqJ-OS-AbK" id="onr-Yv-Lax"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="9cv-mQ-Zyq"/>
-                        <barButtonItem systemItem="action" id="UW4-Tn-LlU"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="kfW-rZ-k0c"/>
                         <barButtonItem systemItem="edit" id="WFA-1x-XHu">
                             <connections>
@@ -621,8 +613,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="+ button" width="42" height="47"/>
-        <image name="Folder-48" width="48" height="48"/>
+        <image name="Folder-4" width="40" height="32"/>
+        <image name="Slice 1" width="42" height="47"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cJF-jT-NUb"/>
