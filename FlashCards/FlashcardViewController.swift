@@ -15,14 +15,8 @@ class FlashcardViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var answerTextView: UITextView!
     
- //   @IBOutlet weak var deleteButton: UIBarButtonItem!
-    
     var card: Flashcard?
     var folder: Folder?
-   
-   
-//    var folderVC : UIViewController!
-    
     
     @IBAction func saveButtonAction(sender: AnyObject) {
     
@@ -59,39 +53,6 @@ class FlashcardViewController: UIViewController, UIScrollViewDelegate {
  
     }
     
-//    @IBAction func deleteButtonAction(sender: AnyObject) {
-//        
-//        let questionController = UIAlertController(title: "Delete card?", message: nil, preferredStyle: .Alert)
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-//        
-//        questionController.addAction(cancelAction)
-//        
-//        //        collectionView(foldersCollectionView, didSelectItemAtIndexPath:(sender.view as! FolderCollectionViewCell).indPath! )
-//        
-//        
-//        
-//        
-//        let deleteAction = UIAlertAction(title: "Delete", style: .Default){(action) in
-//            
-//            
-//            RealmHelper.deleteCard(self.card!)
-//           
-//            
-//            self.navigationController?.popViewControllerAnimated(true)
-//            
-//
-//    }
-//         questionController.addAction(deleteAction)
-//         self.presentViewController(questionController, animated: true, completion: nil)
-       
-
-  //  }
-    
-   
-    
-//    @IBAction func deleteCardAction(sender: AnyObject) {
-//    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,37 +80,6 @@ class FlashcardViewController: UIViewController, UIScrollViewDelegate {
         }
         return true
     }
-//    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        
-//        
-//        let identifier = segue.identifier
-//    
-//    if identifier == "Save"
-//    {
-//    // REVIEW !!!
-//    
-//    if let card = card{
-//    let newCard = Flashcard()
-//    newCard.question = questionTextView.text
-//        newCard.answer = answerTextView.text
-//        RealmHelper.updateCard(card, newCard: newCard)}
-//        
-//    else{
-//        let newCard = Flashcard()
-//        newCard.question = questionTextView.text
-//        newCard.answer = answerTextView.text 
-//        let realm = try! Realm()
-//                try! realm.write(){
-//                   folder?.cardArray.append(newCard)}
-////        folder?.cardArray.append(newCard)
-////        
-//         RealmHelper.addCard(newCard)
-//        }
-//
-//        }
-//
-//    }
     
     
     override func viewWillAppear(animated: Bool) {
@@ -160,28 +90,13 @@ class FlashcardViewController: UIViewController, UIScrollViewDelegate {
         if let card = card{
     questionTextView.text = card.question
     answerTextView.text = card.answer
-//            deleteButton.enabled = true
         }
-//        else {deleteButton.enabled = false
-//       }
     }
     
 
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

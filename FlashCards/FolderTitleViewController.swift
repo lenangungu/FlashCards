@@ -23,76 +23,32 @@ class FolderTitleViewController: UIViewController {
     
     
     let reuseIdentifier = "flashcard"
-    // pass folder clicked to flashcard V.C
-    
-    
-    //    var cards = ["Question 1", "Question 2", "Question 3"]
-    //    var cards: [Flashcard] = []
-    
-   // var cards: Results<Flashcard>! // Dont need..drop all cards in passed folder's array (of cards)
-    //var cards = List<Flashcard>() - replaced by array inside the folder we just passed
+
     var folder: Folder?
     var selectedCardIndex: [Int]?
     var del: UIBarButtonItem?
-    
-    //HERE!! 
-    var cardEditing: Bool = false{
-        didSet{
-            flashcardCollectionView.allowsMultipleSelection = editing
-            flashcardCollectionView.selectItemAtIndexPath(nil, animated: true, scrollPosition: .None)
-//            let deleteButton = navigationItem.rightBarButtonItem
-            if cardEditing {
-                print("editing")
-                navigationItem.setRightBarButtonItem(del, animated: true)
-            }
-            else{print("not editing")}
-        }
-    }
-    
-//    @IBAction func addFlashcardAction(sender: AnyObject) {
-//        
-//        let card = Flashcard()
-//        card.question = ""
-//        card.answer = ""
-//        print("Flashcard created")
-//        
-//        let realm = try! Realm()
-//        try! realm.write(){
-//            folder!.cardArray.append(card)}
-//       // RealmHelper.addCard(card)
-//        flashcardCollectionView.reloadData()
-//    }
-//    
     
     @IBAction func shareAction(sender: AnyObject) {
         
         if folder?.cardArray.count > 0 {
          shareButton.enabled = true
-            // come back...might want to use nil coalescing operator
-        let activityVC = UIActivityViewController(activityItems: [(folder?.cardArray)!], applicationActivities: nil)
             
-            // Excluding activities not needed
-//            activityVC.excludedActivityTypes = [UIActivityTypePostToTwitter,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypePostToTencentWeibo, UIActivityTypePostToWeibo]
-        self.presentViewController(activityVC, animated: true, completion: nil)
-     }
-//        else {shareButton.enabled = false} 
+            // come back...might want to use nil coalescing operator
+//        let activityVC = UIActivityViewController(activityItems: [(folder?.cardArray)!], applicationActivities: nil)
+//            
+//            // Excluding activities not needed
+////            activityVC.excludedActivityTypes = [UIActivityTypePostToTwitter,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypePostToTencentWeibo, UIActivityTypePostToWeibo]
+//        self.presentViewController(activityVC, animated: true, completion: nil)
+//     }
+////        else {shareButton.enabled = false} 
+}
     }
    
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-      //  navigationItem.rightBarButtonItem = editButtonItem()
-       // cards = RealmHelper.retrieveFlashcard()
-        
-        // Store all cards in array of the foler we passed
-        // Folder.cardArray = RealmHelper.retrieveFlashcard()
-        
-        
-        //        print("\(cards)")
-        // Do any additional setup after loading the view.
-         let deleteButton = navigationItem.rightBarButtonItem
-        del = deleteButton
+
     }
 
     
@@ -103,25 +59,17 @@ class FolderTitleViewController: UIViewController {
         let cellIndex = (sender.view as! FlashcardCollectionViewCell).cellIndex
         
         let questionController = UIAlertController(title: "Delete card?", message: nil, preferredStyle: .Alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel){(action) in
-            
-            (sender.view as! FlashcardCollectionViewCell).backgroundColor = nil}
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+//        {(action) in
+//            
+//            (sender.view as! FlashcardCollectionViewCell).backgroundColor = nil}
         
-        
-        //        collectionView(foldersCollectionView, didSelectItemAtIndexPath:(sender.view as! FolderCollectionViewCell).indPath! )
         
         
         
         let deleteAction = UIAlertAction(title: "Delete", style: .Default){(action) in
             
             
-            
-            
-            // self.foldersCollectionView.delete(folder)
-            //  self.foldersCollectionView.delete
-            
-            
-            // RealmHelper.deleteFolder(sender)
             // delete the folder prop erty of the cell that underwent the recognizer
             // Th sender's view is a cell
             
@@ -173,7 +121,6 @@ class FolderTitleViewController: UIViewController {
         {
          // create a new flashcard and populate it with existing content. Else, create a new flashcard with empty fields.
    
-            
              let quizFlashcardViewController = segue.destinationViewController as! QuizFlashcardViewController
             
               quizFlashcardViewController.folder = folder
@@ -182,13 +129,9 @@ class FolderTitleViewController: UIViewController {
         //     quizFlashcardViewController.card = folder!.cardArray[rand]
             
             
-             // quizFlashcardViewController.card = folder!.cardArray[0]
             quizFlashcardViewController.cardArray = folder!.cardArray
             quizFlashcardViewController.quizCardArray = folder!.quizCardArray
             quizFlashcardViewController.card = folder!.quizCardArray[0]
-            
-           
-//            displayFlashcardViewController.card = card
             
                 print("Quiz opened")}
            
@@ -211,9 +154,7 @@ class FolderTitleViewController: UIViewController {
             let displayFlashcardViewController = segue.destinationViewController as! SingleFlashcardViewController
             
             displayFlashcardViewController.card = card
-            
-            
-            //            displayFlashcardViewController.card = card
+           
         }
     
     }
@@ -249,7 +190,7 @@ extension FolderTitleViewController: UICollectionViewDataSource, UICollectionVie
         //    print("card number \(index): \(card.question), \(card.answer)")
         
         
-        // Card is ow optional because in the previous line it is taking an optional folder so card itself will not exist if there is no folder
+        // Card is now optional because in the previous line it is taking an optional folder so card itself will not exist if there is no folder
         cell.flashcardContent.text = card?.question
         
         
@@ -272,10 +213,7 @@ extension FolderTitleViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         print (" Flashcard \(indexPath.item) was selected")
-        if cardEditing{
-           let cardIndex = indexPath.item
-            selectedCardIndex?.append(cardIndex)
-        }
+      
     }
     
 

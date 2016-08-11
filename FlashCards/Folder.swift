@@ -15,16 +15,10 @@ class Folder: Object  {
     dynamic var title = "New"
     dynamic var dateAdded = NSDate()
     // array to hold the cards RLLArray(objectClassName: "Alias")
-    
-    
-    // [algebra1,algebra2,algebra3,algebra4]
     var cardArray = List<Flashcard>()
     var quizCardArray = List<Flashcard>()
-    // [algebra2,algebra2]
-    //var wrongArray = List<Flashcard>()
+
     
-    //var allCardsArray = List<Flashcard>()
-   // var wrongArray: [Int] = []
     
  
 

@@ -13,10 +13,9 @@ class FoldersViewController: UIViewController, UITextFieldDelegate  {
     
   
     @IBOutlet weak var newFolderButton: UIButton!
-  //  @IBOutlet weak var newFolderButton: UIBarButtonItem!
+ 
     @IBOutlet weak var foldersCollectionView: UICollectionView!
-    //var folders = ["History","French","Math"]
-    //var folders: [Folder] = []
+ 
 
     
     var folders: Results<Folder>!
@@ -30,22 +29,7 @@ class FoldersViewController: UIViewController, UITextFieldDelegate  {
         super.viewDidLoad()
         folders = RealmHelper.retrieveFolder()
          print("\(folders)")
-      
-        // Do any additional setup after loading the view, typically from a nib.
-        //Edit button implementation
         
-        setEditing(false, animated: false)
-        
-        // from here!!
-        
-       // navigationItem.rightBarButtonItem = editButtonItem()
-//       foldersCollectionView.allowsMultipleSelection = true
-        
-//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: FolderCollectionViewCell(), action: #selector(FolderCollectionViewCell.textFieldShouldReturn))
-//            
-//        view.addGestureRecognizer(tap)
-        
-       
     }
     
 
@@ -53,11 +37,7 @@ class FoldersViewController: UIViewController, UITextFieldDelegate  {
     override func viewWillAppear(animated: Bool) {
        
     }
-   
-   // @IBAction func newFolderAction(sender: AnyObject) {
     
-
-   
     @IBAction func newFolderAction(sender: AnyObject) {
     
     var num = 2
@@ -75,26 +55,22 @@ class FoldersViewController: UIViewController, UITextFieldDelegate  {
             else {
                 newFolder.title = "New \(folders.count)"
                 
-              //  newFolder.title = "New"
             }
              num = num + 1
         }
         
         
-      //  newFolder.title = "New folder"
-        
         // Adding newly created folder to array
-        //folders.append(newFolder)
+  
         print("\(newFolder.title)")
        
         
         RealmHelper.addFolder(newFolder)
+        // Reloading the collection view to display the newly created folder
         foldersCollectionView.reloadData()
         
     
         
-        // Reloading the collection view to display the newly created folder
-//        foldersCollectionView.reloadData()
         print("Folder created")
      
       
@@ -110,39 +86,21 @@ class FoldersViewController: UIViewController, UITextFieldDelegate  {
         let questionController = UIAlertController(title: "Delete \(folders[cellIndex].title) folder ?", message: nil, preferredStyle: .Alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         
-//        {(action) in
-//            
-//            (sender.view as! FolderCollectionViewCell).backgroundColor = nil}
-        
-        
-        //        collectionView(foldersCollectionView, didSelectItemAtIndexPath:(sender.view as! FolderCollectionViewCell).indPath! )
-        
-        
-//        (sender.view as! FolderCollectionViewCell).backgroundColor = UIColor.grayColor()
-        
+   
         
         let deleteAction = UIAlertAction(title: "Delete", style: .Default){(action) in
             
             
-            
-            
-            // self.foldersCollectionView.delete(folder)
-            //  self.foldersCollectionView.delete
-            
-            
-            // RealmHelper.deleteFolder(sender)
             // delete the folder prop erty of the cell that underwent the recognizer
-            // Th sender's view is a cell
+            // The sender's view is a cell
             
             RealmHelper.deleteFolder(self.folders[cellIndex])
-            
-//            (sender.view as! FolderCollectionViewCell).backgroundColor = nil
+
             
             self.foldersCollectionView.reloadData()
         
             print(self.folders)
         }
-//        (sender.view as! FolderCollectionViewCell).highlighted = true
         
         questionController.addAction(deleteAction)
         questionController.addAction(cancelAction)
@@ -173,7 +131,7 @@ class FoldersViewController: UIViewController, UITextFieldDelegate  {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
     }
 
 }
@@ -192,13 +150,9 @@ extension FoldersViewController: UICollectionViewDataSource, UICollectionViewDel
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(resuseIdentifier, forIndexPath: indexPath) as! FolderCollectionViewCell
 
         let newFolder = folders[indexPath.row]
-        //folderNameHolder = newFolder.title
-        //newFolder.title = folderNameHolder
-        
-       // cell.folderName.text = folderNameHolder
+    
         cell.folderName.text = newFolder.title 
-      //  cell.folderName.text = folders[indexPath.item]
-        
+     
         cell.folder = newFolder
         cell.cellIndex = indexPath.row
         let gestureRecognizer = UILongPressGestureRecognizer()
@@ -226,31 +180,8 @@ extension FoldersViewController: UICollectionViewDataSource, UICollectionViewDel
         print ("Folder \(indexPath.item + 1) was selected")
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(resuseIdentifier, forIndexPath: indexPath) as! FolderCollectionViewCell
         cell.backgroundColor = UIColor.blueColor()
-    
-//    folder = folders[indexPath.item]
     }
     
-//    
-//    override func setEditing(editing: Bool, animated: Bool) {
-//        super.setEditing(editing, animated: animated)
-//        if editing
-//        {
-//            print("hi")
-//            foldersCollectionView.allowsMultipleSelection = true
-//            foldersCollectionView.selectItemAtIndexPath(nil, animated: true, scrollPosition: .None)
-//            selectedFolders.removeAll(keepCapacity: false)
-//           // selectedFolders.append(folder[indexPath])
-//            
-//        }
-//        else {
-//            print("bye")
-//            foldersCollectionView.allowsMultipleSelection = false
-//        }
-//    }
-
-    
-   
- 
 }
 
 
@@ -301,22 +232,5 @@ extension FoldersViewController: UICollectionViewDelegateFlowLayout {
     
     
 }
-
-
-
-//    @IBAction func newFolderAction(sender: AnyObject) {
-//
-//              collectionView(UICollectionView: foldersCollectionView, cellForItemAtIndexPath: indexPath )
-//    }
-
-
-//    @IBAction func newFolderAction(sender: AnyObject) {
-//
-//        //let createdFolder = folder()
-//        let newFolder = folders[]
-//        folders = folders.append(newFolder)
-//    }
-
-
 
 
