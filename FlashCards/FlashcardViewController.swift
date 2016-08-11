@@ -9,9 +9,9 @@
 import UIKit
 import RealmSwift
 
-class FlashcardViewController: UIViewController {
+class FlashcardViewController: UIViewController, UIScrollViewDelegate {
     
-
+    
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var answerTextView: UITextView!
     
@@ -20,10 +20,12 @@ class FlashcardViewController: UIViewController {
     var card: Flashcard?
     var folder: Folder?
    
+   
 //    var folderVC : UIViewController!
     
+    
     @IBAction func saveButtonAction(sender: AnyObject) {
-        
+    
         if let card = card{
             let newCard = Flashcard()
             newCard.question = questionTextView.text
@@ -94,17 +96,20 @@ class FlashcardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         // Do any additional setup after loading the view.
         // Dismiss keyboard when tapping 
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(FlashcardViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        let pan: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(FlashcardViewController.dismissKeyboard))
+        view.addGestureRecognizer(pan)
     }
     
     
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
+        
     }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {

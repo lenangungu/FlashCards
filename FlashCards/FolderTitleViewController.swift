@@ -16,7 +16,11 @@ class FolderTitleViewController: UIViewController {
     @IBOutlet weak var flashcardCollectionView: UICollectionView!
     
     @IBOutlet weak var shareButton: UIBarButtonItem!
-    @IBOutlet weak var playButton: UIBarButtonItem!
+   
+ 
+    
+    @IBOutlet weak var playButton: UIButton!
+    
     
     let reuseIdentifier = "flashcard"
     // pass folder clicked to flashcard V.C
@@ -91,6 +95,56 @@ class FolderTitleViewController: UIViewController {
         del = deleteButton
     }
 
+    
+    @IBAction func deleteLongPressAction(sender: UILongPressGestureRecognizer) {
+        
+        flashcardCollectionView.allowsMultipleSelection = false
+        
+        let cellIndex = (sender.view as! FlashcardCollectionViewCell).cellIndex
+        
+        let questionController = UIAlertController(title: "Delete card?", message: nil, preferredStyle: .Alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel){(action) in
+            
+            (sender.view as! FlashcardCollectionViewCell).backgroundColor = nil}
+        
+        
+        //        collectionView(foldersCollectionView, didSelectItemAtIndexPath:(sender.view as! FolderCollectionViewCell).indPath! )
+        
+        
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .Default){(action) in
+            
+            
+            
+            
+            // self.foldersCollectionView.delete(folder)
+            //  self.foldersCollectionView.delete
+            
+            
+            // RealmHelper.deleteFolder(sender)
+            // delete the folder prop erty of the cell that underwent the recognizer
+            // Th sender's view is a cell
+            
+            RealmHelper.deleteCard((self.folder?.cardArray[cellIndex])!)
+            
+            
+            
+            self.flashcardCollectionView.reloadData()
+            
+            print(self.folder?.cardArray)
+        }
+        
+        
+        questionController.addAction(deleteAction)
+        questionController.addAction(cancelAction)
+        
+        
+        
+        self.presentViewController(questionController, animated: true, completion: nil)
+        print(folder?.cardArray)
+        
+        
+    }
     
     override func viewWillAppear(animated: Bool) {
         // reloading the model before it appears
@@ -197,6 +251,22 @@ extension FolderTitleViewController: UICollectionViewDataSource, UICollectionVie
         
         // Card is ow optional because in the previous line it is taking an optional folder so card itself will not exist if there is no folder
         cell.flashcardContent.text = card?.question
+        
+        
+        cell.cellIndex = indexPath.row
+        let gestureRecognizer = UILongPressGestureRecognizer()
+        
+        // Add target to
+        // The target is the View controller that will handle the gesture
+        // The selector is the name of the function
+        // Object.property or . method
+        // self is the instance of the class where the object was made in
+        // Action, which is the selector, has to be in quotes
+        
+        gestureRecognizer.addTarget(self , action: #selector(FolderTitleViewController.deleteLongPressAction(_:)))
+        // Adding recognizer to cell
+        cell.addGestureRecognizer(gestureRecognizer)
+
         return cell
     }
     

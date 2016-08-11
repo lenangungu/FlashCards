@@ -200,6 +200,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0G-cA-Gyi">
                                 <rect key="frame" x="261" y="528" width="79" height="22"/>
                                 <state key="normal" image="Group"/>
+                                <connections>
+                                    <segue destination="hIU-fJ-a9W" kind="show" identifier="quizFlashcard" id="NbK-Z7-16t"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -220,22 +223,12 @@
                             </mask>
                         </variation>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="JvC-hA-8Fh"/>
-                        <barButtonItem image="Group" id="KHl-pZ-pog">
-                            <color key="tintColor" red="0.20784313725490197" green="0.41176470588235292" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="playButtonAction:" destination="3Gu-tF-7GM" id="cZ7-kt-JDj"/>
-                                <segue destination="hIU-fJ-a9W" kind="show" identifier="quizFlashcard" id="kLO-q1-z6y"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="KSa-3N-9Hn"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Folder Title" id="VQM-5O-fSZ"/>
                     <connections>
                         <outlet property="flashcardCollectionView" destination="Egh-f7-l39" id="3UJ-SU-5fZ"/>
                         <outlet property="folderTitleBar" destination="VQM-5O-fSZ" id="32p-v6-HHe"/>
-                        <outlet property="playButton" destination="KHl-pZ-pog" id="DaF-jz-Mjp"/>
+                        <outlet property="playButton" destination="z0G-cA-Gyi" id="8NH-xR-gSW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L8f-PA-DrL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -245,7 +238,7 @@
         <!--FlashcardViewController-->
         <scene sceneID="sKw-bB-QPl">
             <objects>
-                <viewController title="FlashcardViewController" id="LOn-4g-klq" customClass="FlashcardViewController" customModule="FlashCards" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="FlashcardViewController" hidesBottomBarWhenPushed="YES" id="LOn-4g-klq" customClass="FlashcardViewController" customModule="FlashCards" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OXT-cM-PhV"/>
                         <viewControllerLayoutGuide type="bottom" id="mtl-r5-n5O"/>
@@ -255,10 +248,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ig7-Ke-9D7" userLabel="Super Stack View">
-                                <rect key="frame" x="120" y="90" width="361" height="420"/>
+                                <rect key="frame" x="120" y="96" width="361" height="408"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ya4-O1-ycO" userLabel="Stack View Q">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="194"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6w6-6g-gRu">
                                                 <rect key="frame" x="146" y="0.0" width="69" height="21"/>
@@ -267,7 +260,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qh6-0a-5uM">
-                                                <rect key="frame" x="0.0" y="60" width="361" height="140"/>
+                                                <rect key="frame" x="0.0" y="39" width="361" height="155"/>
                                                 <color key="backgroundColor" red="0.96078431369999995" green="1" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -275,11 +268,11 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="Qh6-0a-5uM" firstAttribute="width" secondItem="Ya4-O1-ycO" secondAttribute="width" id="0Er-aM-Hnu"/>
-                                            <constraint firstItem="Qh6-0a-5uM" firstAttribute="height" secondItem="Ya4-O1-ycO" secondAttribute="height" multiplier="0.7" id="rRj-s1-fS4"/>
+                                            <constraint firstItem="Qh6-0a-5uM" firstAttribute="height" secondItem="Ya4-O1-ycO" secondAttribute="height" multiplier="0.8" id="rRj-s1-fS4"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OJ4-gO-LoW" userLabel="Stack View A">
-                                        <rect key="frame" x="0.0" y="220" width="361" height="200"/>
+                                        <rect key="frame" x="0.0" y="214" width="361" height="194"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g4-6j-lNb" userLabel="Answer">
                                                 <rect key="frame" x="152" y="0.0" width="57" height="21"/>
@@ -288,7 +281,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JNQ-Z5-tYB">
-                                                <rect key="frame" x="0.0" y="40" width="361" height="160"/>
+                                                <rect key="frame" x="0.0" y="39" width="361" height="155"/>
                                                 <color key="backgroundColor" red="0.96078431369999995" green="1" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -305,10 +298,19 @@
                                     <constraint firstItem="Ya4-O1-ycO" firstAttribute="height" secondItem="OJ4-gO-LoW" secondAttribute="height" id="ht8-X4-fux"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7O-lI-s7F">
+                                <rect key="frame" x="262" y="509" width="77" height="34"/>
+                                <state key="normal" image="Group 3"/>
+                                <connections>
+                                    <action selector="saveButtonAction:" destination="LOn-4g-klq" eventType="touchUpInside" id="T1j-Hs-uvg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058823529409" green="0.94509803921568625" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Ig7-Ke-9D7" firstAttribute="height" secondItem="coX-es-MKp" secondAttribute="height" multiplier="0.7" id="Gvz-gj-CoB"/>
+                            <constraint firstItem="g7O-lI-s7F" firstAttribute="top" secondItem="OXT-cM-PhV" secondAttribute="bottom" constant="445" id="FhT-IV-OOw"/>
+                            <constraint firstItem="Ig7-Ke-9D7" firstAttribute="height" secondItem="coX-es-MKp" secondAttribute="height" multiplier="0.68" id="Gvz-gj-CoB"/>
+                            <constraint firstItem="g7O-lI-s7F" firstAttribute="centerX" secondItem="coX-es-MKp" secondAttribute="centerX" id="MhS-N6-r84"/>
                             <constraint firstItem="Ig7-Ke-9D7" firstAttribute="centerX" secondItem="coX-es-MKp" secondAttribute="centerX" id="QpT-RS-eB4"/>
                             <constraint firstItem="Ig7-Ke-9D7" firstAttribute="width" secondItem="coX-es-MKp" secondAttribute="width" multiplier="0.6" constant="1" id="Rbx-Dv-21C"/>
                             <constraint firstItem="Ig7-Ke-9D7" firstAttribute="centerY" secondItem="coX-es-MKp" secondAttribute="centerY" id="sKg-44-cEh"/>
@@ -319,11 +321,6 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="BLJ-bl-8PH">
                             <connections>
                                 <action selector="cancelButtonAction:" destination="LOn-4g-klq" id="8eG-ve-COi"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="IQ8-S5-bfY">
-                            <connections>
-                                <action selector="saveButtonAction:" destination="LOn-4g-klq" id="Rqi-9b-psq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -339,7 +336,7 @@
         <!--Quiz Flashcard View Controller-->
         <scene sceneID="4hJ-YO-Ycf">
             <objects>
-                <viewController id="hIU-fJ-a9W" customClass="QuizFlashcardViewController" customModule="FlashCards" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="hIU-fJ-a9W" customClass="QuizFlashcardViewController" customModule="FlashCards" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="arM-jT-C4X"/>
                         <viewControllerLayoutGuide type="bottom" id="cXC-uo-noU"/>
@@ -632,9 +629,10 @@
         <image name="Folder-4" width="40" height="32"/>
         <image name="Group" width="79" height="20"/>
         <image name="Group 2" width="141" height="63"/>
+        <image name="Group 3" width="77" height="34"/>
         <image name="Slice 1" width="42" height="47"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cJF-jT-NUb"/>
+        <segue reference="cLU-yS-1mm"/>
     </inferredMetricsTieBreakers>
 </document>

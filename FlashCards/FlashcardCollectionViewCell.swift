@@ -11,4 +11,5 @@ import UIKit
 class FlashcardCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var flashcardContent: UITextView!
+     var cellIndex = 0
 }

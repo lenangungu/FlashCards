@@ -68,13 +68,16 @@ class FoldersViewController: UIViewController, UITextFieldDelegate  {
         for folder in folders{
             if newFolder.title == folder.title
             {
-                newFolder.title = "New folder\(num)"
-                num = num + 1
+                newFolder.title = "New \(num)"
+               
                 
             }
             else {
-                newFolder.title = "New folder"
+                newFolder.title = "New \(folders.count)"
+                
+              //  newFolder.title = "New"
             }
+             num = num + 1
         }
         
         
@@ -100,18 +103,22 @@ class FoldersViewController: UIViewController, UITextFieldDelegate  {
     
     @IBAction func deleteLongPressAction(sender: UILongPressGestureRecognizer) {
         
+        foldersCollectionView.allowsMultipleSelection = false
+        
         let cellIndex = (sender.view as! FolderCollectionViewCell).cellIndex
         
-        let questionController = UIAlertController(title: "Delete folder?", message: nil, preferredStyle: .Alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel){(action) in
-            
-            (sender.view as! FolderCollectionViewCell).backgroundColor = nil}
+        let questionController = UIAlertController(title: "Delete \(folders[cellIndex].title) folder ?", message: nil, preferredStyle: .Alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        
+//        {(action) in
+//            
+//            (sender.view as! FolderCollectionViewCell).backgroundColor = nil}
         
         
         //        collectionView(foldersCollectionView, didSelectItemAtIndexPath:(sender.view as! FolderCollectionViewCell).indPath! )
         
         
-        (sender.view as! FolderCollectionViewCell).backgroundColor = UIColor.grayColor()
+//        (sender.view as! FolderCollectionViewCell).backgroundColor = UIColor.grayColor()
         
         
         let deleteAction = UIAlertAction(title: "Delete", style: .Default){(action) in
@@ -129,13 +136,13 @@ class FoldersViewController: UIViewController, UITextFieldDelegate  {
             
             RealmHelper.deleteFolder(self.folders[cellIndex])
             
-            (sender.view as! FolderCollectionViewCell).backgroundColor = nil
+//            (sender.view as! FolderCollectionViewCell).backgroundColor = nil
             
             self.foldersCollectionView.reloadData()
         
             print(self.folders)
         }
-        (sender.view as! FolderCollectionViewCell).highlighted = true
+//        (sender.view as! FolderCollectionViewCell).highlighted = true
         
         questionController.addAction(deleteAction)
         questionController.addAction(cancelAction)

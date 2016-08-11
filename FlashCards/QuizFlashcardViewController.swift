@@ -65,6 +65,35 @@ class QuizFlashcardViewController: UIViewController {
         
     }
    
+    func show () {
+        doneButton.alpha = 0
+        print(quizCardArray)
+        // Creating card color and reseting the answer text view color
+        
+        answerTextView.backgroundColor = LbeigeColor
+        correctButton.enabled = true
+        wrongButton.enabled = true
+        
+        correctButton.alpha = 0
+        wrongButton.alpha = 0
+        skipButton.alpha = 1
+        //
+        //        cardArray = folder?.cardArray
+        //        let count = cardArray!.count
+        quizCardArray = folder?.quizCardArray
+        let count = quizCardArray!.count
+        if count == 1
+        {skipButton.enabled = false}
+        //       // let card = folder!.cardArray[0]
+        //        // if card != nil ....
+        ////        if let card = card {
+        //
+        questionTextView.text = card!.question
+        answerTextView.text = card!.answer
+        answerTextView.alpha = 0
+        print("You got \(card!.correct) correct attempts and \(card!.wrong) wrong attempts")
+    }
+    
     @IBAction func skipButtonAction(sender: AnyObject) {
       
         quizCardArray = folder?.quizCardArray
@@ -99,9 +128,12 @@ class QuizFlashcardViewController: UIViewController {
             // Called viewWilAppear to relaod the view
             
             print("Next card")
-            self.viewWillAppear(true)
-            //        print ("\(count)")\
             
+            doneButton.alpha = 0
+            print(quizCardArray)
+            // Creating card color and reseting the answer text view color
+            
+            show()
             
         }
             // if last card , arrow = done
@@ -328,34 +360,8 @@ class QuizFlashcardViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        doneButton.alpha = 0
-        print(quizCardArray)
-        // Creating card color and reseting the answer text view color
-        
-        answerTextView.backgroundColor = LbeigeColor
-        correctButton.enabled = true
-        wrongButton.enabled = true
-        
-        correctButton.alpha = 0
-        wrongButton.alpha = 0
-        skipButton.alpha = 1
-//        
-//        cardArray = folder?.cardArray
-//        let count = cardArray!.count
-        quizCardArray = folder?.quizCardArray
-        let count = quizCardArray!.count
-        if count == 1
-        {skipButton.enabled = false}
-//       // let card = folder!.cardArray[0]
-//        // if card != nil ....
-////        if let card = card {
-//        
-            questionTextView.text = card!.question
-            answerTextView.text = card!.answer
-            answerTextView.alpha = 0
-        print("You got \(card!.correct) correct attempts and \(card!.wrong) wrong attempts")
-//
-//        //}
+        show()
+      
 //        else{
 //            // Setting fields of newCards to empty strings
 //            questionTextView.text = " "

@@ -7,6 +7,7 @@
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
@@ -15,28 +16,11 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="rqb-oN-KxN">
-                                <rect key="frame" x="227" y="223" width="147" height="154"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="154" id="NQY-kU-Yxi"/>
-                                    <constraint firstAttribute="width" constant="147" id="ryS-CN-F6a"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.082632211538461564" green="0.082632211538461564" blue="0.082632211538461564" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="rqb-oN-KxN" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="HVM-n4-Dob"/>
-                            <constraint firstItem="rqb-oN-KxN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="abb-dU-Sqs"/>
-                        </constraints>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="iTunesArtwork" width="512" height="512"/>
-    </resources>
 </document>

@@ -12,7 +12,7 @@ import RealmSwift
 class Folder: Object  {
     
     // have to be dynamic to connect the properties to Realm
-    dynamic var title = "New folder"
+    dynamic var title = "New"
     dynamic var dateAdded = NSDate()
     // array to hold the cards RLLArray(objectClassName: "Alias")
     
