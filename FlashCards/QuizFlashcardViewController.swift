@@ -83,7 +83,8 @@ class QuizFlashcardViewController: UIViewController {
         quizCardArray = folder?.quizCardArray
         let count = quizCardArray!.count
         if count == 1
-        {skipButton.enabled = false}
+        {skipButton.enabled = false
+        skipButton.backgroundColor = UIColor.grayColor()}
         //       // let card = folder!.cardArray[0]
         //        // if card != nil ....
         ////        if let card = card {
@@ -141,7 +142,8 @@ class QuizFlashcardViewController: UIViewController {
         //if loop == (count - 1)
         if index == (count - 1)
            
-        { skipButton.alpha = 0
+        { skipButton.enabled = false
+            skipButton.backgroundColor = UIColor.grayColor()
            
             //skipButton.enabled = false
            // skipButton.backgroundColor = UIColor.grayColor()
