@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Mixpanel
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
        
         NSThread.sleepForTimeInterval(0.1)
+        
+        Mixpanel.sharedInstanceWithToken("0cd6d8fd540d0e85e7b4b14ed1a017ab")
+        let mixpanel: Mixpanel = Mixpanel.sharedInstance()
+        mixpanel.track("App launched")
+        
         return true
     }
 

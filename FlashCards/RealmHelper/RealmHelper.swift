@@ -12,7 +12,8 @@ import RealmSwift
 class RealmHelper {
     
     // Flashcard functions
-    static func doSomething() {
+    static func doSomething()
+    {
         
     }
     static func addCard(card: Flashcard) {

@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Mixpanel 
 
 class FoldersViewController: UIViewController, UITextFieldDelegate  {
     
@@ -72,6 +73,8 @@ class FoldersViewController: UIViewController, UITextFieldDelegate  {
     
         
         print("Folder created")
+        let mixpanel: Mixpanel = Mixpanel.sharedInstance()
+        mixpanel.track("Folder created")
      
       
     }

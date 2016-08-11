@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Mixpanel
 
 class FolderTitleViewController: UIViewController {
 
@@ -90,7 +91,8 @@ class FolderTitleViewController: UIViewController {
         
         self.presentViewController(questionController, animated: true, completion: nil)
         print(folder?.cardArray)
-        
+        let mixpanel: Mixpanel = Mixpanel.sharedInstance()
+        mixpanel.track("Folder deleted")
         
     }
     
@@ -133,7 +135,10 @@ class FolderTitleViewController: UIViewController {
             quizFlashcardViewController.quizCardArray = folder!.quizCardArray
             quizFlashcardViewController.card = folder!.quizCardArray[0]
             
-                print("Quiz opened")}
+                print("Quiz opened")
+            let mixpanel: Mixpanel = Mixpanel.sharedInstance()
+            mixpanel.track("Quiz opened")
+        }
            
             
         

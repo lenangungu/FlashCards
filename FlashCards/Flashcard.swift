@@ -15,5 +15,7 @@ class Flashcard: Object {
     dynamic var question = ""
     dynamic var answer = ""
     dynamic var correct = 0
-    dynamic var wrong = 0 
+    dynamic var wrong = 0
+    dynamic var quiz = 0 
+ 
 }

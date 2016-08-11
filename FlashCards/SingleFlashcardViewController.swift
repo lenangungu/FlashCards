@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Mixpanel
 
 class SingleFlashcardViewController: UIViewController {
 
@@ -60,6 +61,9 @@ class SingleFlashcardViewController: UIViewController {
             
             editFlashcardViewController.folder = folder
             editFlashcardViewController.card = card
+            
+            let mixpanel: Mixpanel = Mixpanel.sharedInstance()
+            mixpanel.track("Card edit")
         }
     }
     
