@@ -91,7 +91,7 @@ class QuizFlashcardViewController: UIViewController {
     
     @IBAction func skipButtonAction(sender: AnyObject) {
         
-        
+        next = next + 1
         if quizArray.count > 0
         {
             skipButton.enabled = true

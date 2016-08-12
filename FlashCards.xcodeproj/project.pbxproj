@@ -23,13 +23,13 @@
 		8A2BAEFC1D3C41C5002F3AE8 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAEFB1D3C41C5002F3AE8 /* Flashcard.swift */; };
 		8A2BAF021D3C82DB002F3AE8 /* QuizFlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAF011D3C82DB002F3AE8 /* QuizFlashcardViewController.swift */; };
 		8A3C82C71D3DDAD900846BC2 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3C82C61D3DDAD900846BC2 /* RealmHelper.swift */; };
-		8A3C82D51D3DE44A00846BC2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3C82D31D3DE44A00846BC2 /* Realm.framework */; };
-		8A3C82D61D3DE44A00846BC2 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3C82D31D3DE44A00846BC2 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8A3C82D71D3DE44A00846BC2 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3C82D41D3DE44A00846BC2 /* RealmSwift.framework */; };
-		8A3C82D81D3DE44A00846BC2 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3C82D41D3DE44A00846BC2 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A3C82DB1D3E9F1F00846BC2 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3C82DA1D3E9F1F00846BC2 /* Folder.swift */; };
 		8A3C82DF1D4AA6CE00846BC2 /* FlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3C82DE1D4AA6CE00846BC2 /* FlashcardViewController.swift */; };
 		8A3C83041D54EDC500846BC2 /* SingleFlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3C83031D54EDC500846BC2 /* SingleFlashcardViewController.swift */; };
+		8A4CAFEF1D5D664800A5BC19 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3C82D41D3DE44A00846BC2 /* RealmSwift.framework */; };
+		8A4CAFF01D5D664800A5BC19 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3C82D41D3DE44A00846BC2 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8A4CAFF11D5D664E00A5BC19 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3C82D31D3DE44A00846BC2 /* Realm.framework */; };
+		8A4CAFF21D5D664E00A5BC19 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3C82D31D3DE44A00846BC2 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,14 +50,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8A3C82D91D3DE44B00846BC2 /* Embed Frameworks */ = {
+		8A4CAFEE1D5D638400A5BC19 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8A3C82D81D3DE44A00846BC2 /* RealmSwift.framework in Embed Frameworks */,
-				8A3C82D61D3DE44A00846BC2 /* Realm.framework in Embed Frameworks */,
+				8A4CAFF21D5D664E00A5BC19 /* Realm.framework in Embed Frameworks */,
+				8A4CAFF01D5D664800A5BC19 /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,8 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A3C82D51D3DE44A00846BC2 /* Realm.framework in Frameworks */,
-				8A3C82D71D3DE44A00846BC2 /* RealmSwift.framework in Frameworks */,
+				8A4CAFF11D5D664E00A5BC19 /* Realm.framework in Frameworks */,
+				8A4CAFEF1D5D664800A5BC19 /* RealmSwift.framework in Frameworks */,
 				89EFD6270B06616A8C7D6E1E /* Pods_FlashCards.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,9 +246,9 @@
 				8A2BAE4B1D354572002F3AE8 /* Frameworks */,
 				8A2BAE4C1D354572002F3AE8 /* Resources */,
 				8A3C82D11D3DE2F200846BC2 /* ShellScript */,
-				8A3C82D91D3DE44B00846BC2 /* Embed Frameworks */,
 				701F22EB832D3FF3A3A2C88A /* [CP] Embed Pods Frameworks */,
 				BDDD8F9707CC85A05ADD69AE /* [CP] Copy Pods Resources */,
+				8A4CAFEE1D5D638400A5BC19 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -312,7 +312,7 @@
 				TargetAttributes = {
 					8A2BAE4D1D354572002F3AE8 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 3DK7CC39KB;
+						DevelopmentTeam = 8TM9YHUFEP;
 					};
 					8A2BAE611D354572002F3AE8 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -389,7 +389,7 @@
 		};
 		701F22EB832D3FF3A3A2C88A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -400,7 +400,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlashCards/Pods-FlashCards-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		7AE234604F912BD05BAD4815 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -428,7 +427,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+			shellScript = "\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
 		};
 		8E8559B87EF1E5C5A6122F94 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -477,7 +476,7 @@
 		};
 		BDDD8F9707CC85A05ADD69AE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -677,9 +676,10 @@
 				INFOPLIST_FILE = FlashCards/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.FlashCards;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lenangungu.FlashCards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -698,9 +698,10 @@
 				INFOPLIST_FILE = FlashCards/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.FlashCards;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lenangungu.FlashCards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
