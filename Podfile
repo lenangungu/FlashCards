@@ -8,8 +8,8 @@ target 'FlashCards' do
   use_frameworks!
 
   # Pods for FlashCards
-pod ‘Mixpanel’ 
-
+pod 'Mixpanel' 
+pod ‘RealmSwift'
   target 'FlashCardsTests' do
     inherit! :search_paths
     # Pods for testing
