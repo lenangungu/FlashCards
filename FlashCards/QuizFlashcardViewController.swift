@@ -18,16 +18,14 @@ class QuizFlashcardViewController: UIViewController {
     @IBOutlet weak var skipButton: UIButton!
     
     @IBOutlet weak var correctButton: UIButton!
-    
     @IBOutlet weak var wrongButton: UIButton!
-    
     @IBOutlet weak var doneButton: UIButton!
   
     @IBOutlet weak var resultsTableView: UITableView!
-    
-    @IBOutlet weak var resultsQuestion: UILabel!
-    @IBOutlet weak var resultsAnswer: UILabel!
-    @IBOutlet weak var resultsWrongs: UILabel!
+
+    @IBOutlet weak var resultsQuestionLabel: UIButton!
+    @IBOutlet weak var resultsAnswerLabel: UIButton!
+    @IBOutlet weak var resultsWrongsLabel: UIButton!
     
     var card: Flashcard?
     var folder: Folder?
@@ -167,9 +165,9 @@ class QuizFlashcardViewController: UIViewController {
             //HERE!!
             // the result table will have all cards with their questions, answers, and number of wrongs - we then hve to set the number of wrongs to 0 each time the quiz is done
             resultsTableView.alpha = 1
-            resultsQuestion.alpha = 1
-            resultsAnswer.alpha = 1
-            resultsWrongs.alpha = 1
+            resultsQuestionLabel.alpha = 1
+            resultsAnswerLabel.alpha = 1
+            resultsWrongsLabel.alpha = 1
             
             
             let mixpanel: Mixpanel = Mixpanel.sharedInstance()
@@ -251,9 +249,9 @@ class QuizFlashcardViewController: UIViewController {
         resultsTableView.backgroundColor = LbeigeColor
         resultsTableView.separatorColor = UIColor.blackColor()
         resultsTableView.alpha = 0
-        resultsQuestion.alpha = 0
-        resultsAnswer.alpha = 0
-        resultsWrongs.alpha = 0
+        resultsQuestionLabel.alpha = 0
+        resultsAnswerLabel.alpha = 0
+        resultsWrongsLabel.alpha = 0
         
 
         quizCardArray = folder?.quizCardArray
