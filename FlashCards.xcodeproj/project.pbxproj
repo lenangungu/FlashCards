@@ -26,6 +26,7 @@
 		8A3C82DB1D3E9F1F00846BC2 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3C82DA1D3E9F1F00846BC2 /* Folder.swift */; };
 		8A3C82DF1D4AA6CE00846BC2 /* FlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3C82DE1D4AA6CE00846BC2 /* FlashcardViewController.swift */; };
 		8A3C83041D54EDC500846BC2 /* SingleFlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3C83031D54EDC500846BC2 /* SingleFlashcardViewController.swift */; };
+		8AA6B90C1D6966F4004A9EDE /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA6B90B1D6966F4004A9EDE /* ResultsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		8A3C82DA1D3E9F1F00846BC2 /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		8A3C82DE1D4AA6CE00846BC2 /* FlashcardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashcardViewController.swift; sourceTree = "<group>"; };
 		8A3C83031D54EDC500846BC2 /* SingleFlashcardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleFlashcardViewController.swift; sourceTree = "<group>"; };
+		8AA6B90B1D6966F4004A9EDE /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
 		A2A8A59C36BB1C484F21D9C8 /* Pods-FlashCardsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashCardsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlashCardsTests/Pods-FlashCardsTests.release.xcconfig"; sourceTree = "<group>"; };
 		EA5BCD3AD73A7000BE6181A8 /* Pods_FlashCardsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlashCardsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDE54838A828D792D55614DC /* Pods-FlashCardsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashCardsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlashCardsUITests/Pods-FlashCardsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				8A2BAF011D3C82DB002F3AE8 /* QuizFlashcardViewController.swift */,
 				8A3C82DE1D4AA6CE00846BC2 /* FlashcardViewController.swift */,
 				8A2BAE551D354572002F3AE8 /* Main.storyboard */,
+				8AA6B90B1D6966F4004A9EDE /* ResultsTableViewCell.swift */,
 				8A2BAE581D354572002F3AE8 /* Assets.xcassets */,
 				8A2BAE5A1D354572002F3AE8 /* LaunchScreen.storyboard */,
 				8A2BAE5D1D354572002F3AE8 /* Info.plist */,
@@ -501,6 +504,7 @@
 			files = (
 				8A2BAF021D3C82DB002F3AE8 /* QuizFlashcardViewController.swift in Sources */,
 				8A2BAEFC1D3C41C5002F3AE8 /* Flashcard.swift in Sources */,
+				8AA6B90C1D6966F4004A9EDE /* ResultsTableViewCell.swift in Sources */,
 				8A2BAEF81D3B00C3002F3AE8 /* FolderCollectionViewCell.swift in Sources */,
 				8A3C83041D54EDC500846BC2 /* SingleFlashcardViewController.swift in Sources */,
 				8A2BAE541D354572002F3AE8 /* FoldersViewController.swift in Sources */,

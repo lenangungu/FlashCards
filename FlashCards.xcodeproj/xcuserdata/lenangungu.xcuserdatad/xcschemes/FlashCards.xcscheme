@@ -20,6 +20,34 @@
                ReferencedContainer = "container:FlashCards.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8A2BAE611D354572002F3AE8"
+               BuildableName = "FlashCardsTests.xctest"
+               BlueprintName = "FlashCardsTests"
+               ReferencedContainer = "container:FlashCards.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8A2BAE6C1D354572002F3AE8"
+               BuildableName = "FlashCardsUITests.xctest"
+               BlueprintName = "FlashCardsUITests"
+               ReferencedContainer = "container:FlashCards.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -28,26 +56,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8A2BAE611D354572002F3AE8"
-               BuildableName = "FlashCardsTests.xctest"
-               BlueprintName = "FlashCardsTests"
-               ReferencedContainer = "container:FlashCards.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8A2BAE6C1D354572002F3AE8"
-               BuildableName = "FlashCardsUITests.xctest"
-               BlueprintName = "FlashCardsUITests"
-               ReferencedContainer = "container:FlashCards.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

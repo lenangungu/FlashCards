@@ -22,7 +22,12 @@ class QuizFlashcardViewController: UIViewController {
     @IBOutlet weak var wrongButton: UIButton!
     
     @IBOutlet weak var doneButton: UIButton!
+  
+    @IBOutlet weak var resultsTableView: UITableView!
     
+    @IBOutlet weak var resultsQuestion: UILabel!
+    @IBOutlet weak var resultsAnswer: UILabel!
+    @IBOutlet weak var resultsWrongs: UILabel!
     
     var card: Flashcard?
     var folder: Folder?
@@ -158,6 +163,15 @@ class QuizFlashcardViewController: UIViewController {
             answerTextView.alpha = 0
             questionTextView.alpha = 0
             doneButton.alpha = 1
+            
+            //HERE!!
+            // the result table will have all cards with their questions, answers, and number of wrongs - we then hve to set the number of wrongs to 0 each time the quiz is done
+            resultsTableView.alpha = 1
+            resultsQuestion.alpha = 1
+            resultsAnswer.alpha = 1
+            resultsWrongs.alpha = 1
+            
+            
             let mixpanel: Mixpanel = Mixpanel.sharedInstance()
             mixpanel.track("Quiz done")
         }
@@ -232,6 +246,16 @@ class QuizFlashcardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        resultsTableView.estimatedRowHeight = 82
+//        resultsTableView.rowHeight = UITableViewAutomaticDimension
+        resultsTableView.backgroundColor = LbeigeColor
+        resultsTableView.separatorColor = UIColor.blackColor()
+        resultsTableView.alpha = 0
+        resultsQuestion.alpha = 0
+        resultsAnswer.alpha = 0
+        resultsWrongs.alpha = 0
+        
+
         quizCardArray = folder?.quizCardArray
         for (index, _) in quizCardArray!.enumerate() { arrayOfIndex.append(index) }
         
@@ -279,6 +303,7 @@ class QuizFlashcardViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+//        self.resultsTableView.reloadData() 
         show()
     }
     
@@ -289,6 +314,37 @@ class QuizFlashcardViewController: UIViewController {
         
     }
     
+    
+    
+}
+
+extension QuizFlashcardViewController: UITableViewDataSource
+{
+    // the result table will have all cards with their questions, answers, and number of wrongs - we then hve to set the number of wrongs to 0 each time the quiz is done
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return quizArray.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("resultCell", forIndexPath: indexPath) as! ResultsTableViewCell
+        // recylcing cells and downcasting the cell to a ListNotesTableViewCell
+        
+    
+        let row = indexPath.row
+        
+        // 2
+        let card = quizCardArray![row]
+        
+        cell.resultsQuestion.backgroundColor = LbeigeColor
+        cell.resultsAnswer.backgroundColor = LbeigeColor
+        cell.resultsQuestion.text = card.question
+        cell.resultsAnswer.text = card.answer
+        cell.resultsWrongs.text = String(card.wrong)
+        cell.backgroundColor = LbeigeColor
+
+        return  cell  }
     
     
 }
