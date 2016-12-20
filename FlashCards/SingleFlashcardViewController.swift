@@ -17,11 +17,13 @@ class SingleFlashcardViewController: UIViewController {
     @IBOutlet weak var answerTextView: UITextView!
 
     @IBOutlet weak var deleteButton: UIBarButtonItem!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var previousButton: UIButton!
     
     var card: Flashcard?
     var folder: Folder?
     var cardArray: List<Flashcard>?
-    var index = 0
+    var index: Int?
     
     @IBAction func revealAnswerAction(sender: AnyObject) {
         UIView.transitionWithView(self.questionTextView, duration: 0.5, options: UIViewAnimationOptions.TransitionFlipFromRight, animations: nil, completion: {(finished: Bool) -> () in
@@ -32,9 +34,55 @@ class SingleFlashcardViewController: UIViewController {
             })
     }
     
+    @IBAction func nextButtonAction(sender: AnyObject) {
+       
+        previousButton.enabled = true
+      if index! < ((cardArray?.count)! - 1)
+        {
+        let nextCard = cardArray![(index! + 1)]
+        questionTextView.text = nextCard.question
+        answerTextView.text = nextCard.answer
+        answerTextView.alpha = 0
+            index = index! + 1
+        }
+      
+      if (index!  == ((cardArray?.count)! - 1))
+        {
+            nextButton.enabled = false
+        }
+    }
     
+    @IBAction func previousButtonAction(sender: AnyObject) {
+        
+        nextButton.enabled = true 
+        if index! > 0
+        {
+            let previousCard = cardArray![(index! - 1)]
+            questionTextView.text = previousCard.question
+            answerTextView.text = previousCard.answer
+            answerTextView.alpha = 0
+            index = index! - 1
+        }
+        
+        if (index!  == 0)
+        {
+            previousButton.enabled = false
+        }
+    }
+  
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        if (card?.index) == ((cardArray?.count)! - 1)
+        {
+            nextButton.enabled = false
+            
+        }
+        
+        if (card?.index) == 0
+        {
+            previousButton.enabled = false
+            
+        }
         
         // Creating card color and reseting the answer text view color
         let LbeigeColor = UIColor(red: 245.0/255.0, green: 255.0/255.0, blue: 198.0/255.0, alpha: 1.0)
@@ -93,7 +141,7 @@ class SingleFlashcardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
 
     override func didReceiveMemoryWarning() {

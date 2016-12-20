@@ -26,12 +26,13 @@ class QuizFlashcardViewController: UIViewController {
     @IBOutlet weak var resultsQuestionLabel: UIButton!
     @IBOutlet weak var resultsAnswerLabel: UIButton!
     @IBOutlet weak var resultsWrongsLabel: UIButton!
+    @IBOutlet weak var resultsBlackBand: UILabel!
     
     var card: Flashcard?
     var folder: Folder?
     var cardArray: List<Flashcard>?
     var quizCardArray: List<Flashcard>?
-    
+
     var tryy: Int?
     var arrayOfIndex: [Int] = []
     var nextIndex = 0
@@ -81,7 +82,7 @@ class QuizFlashcardViewController: UIViewController {
         skipButton.alpha = 1
         
         quizCardArray = folder?.quizCardArray
-        let count = quizCardArray!.count
+       let count = quizCardArray!.count
         if count == 1
         {skipButton.enabled = false
             skipButton.backgroundColor = UIColor.grayColor()}
@@ -112,11 +113,11 @@ class QuizFlashcardViewController: UIViewController {
             show()
             
         }
-        if next == (quizArray.count - 1)
+         if next == (quizArray.count - 1)
         {
             skipButton.enabled = false
-            skipButton.backgroundColor = UIColor.grayColor()}
-        
+            skipButton.backgroundColor = UIColor.grayColor()
+        }
         
         
     }
@@ -125,9 +126,12 @@ class QuizFlashcardViewController: UIViewController {
     
     @IBAction func correctButtonAction(sender: AnyObject) {
         
-        
         next = next + 1
-        
+        if next == (quizArray.count - 1)
+        {
+            skipButton.enabled = false
+            skipButton.backgroundColor = UIColor.grayColor()
+        }
         
         // nextIndex = nextIndex + 1
         answerTextView.backgroundColor = UIColor.greenColor()
@@ -164,11 +168,13 @@ class QuizFlashcardViewController: UIViewController {
             
             //HERE!!
             // the result table will have all cards with their questions, answers, and number of wrongs - we then hve to set the number of wrongs to 0 each time the quiz is done
+             UIView.transitionWithView(self.doneButton, duration: 0.5, options: UIViewAnimationOptions.CurveEaseInOut, animations: nil, completion: nil) 
+            
             resultsTableView.alpha = 1
             resultsQuestionLabel.alpha = 1
             resultsAnswerLabel.alpha = 1
             resultsWrongsLabel.alpha = 1
-            
+            resultsBlackBand.alpha = 1
             
             let mixpanel: Mixpanel = Mixpanel.sharedInstance()
             mixpanel.track("Quiz done")
@@ -176,12 +182,20 @@ class QuizFlashcardViewController: UIViewController {
         
         //}
         
+        
     }
     
     
     
     @IBAction func wrongButtonAction(sender: AnyObject) {
+       
+       
         next = next + 1
+        if next == (quizArray.count - 1)
+        {
+            skipButton.enabled = false
+            skipButton.backgroundColor = UIColor.grayColor()
+        }
         quizArray.append(card!)
         
         // arrayOfIndex.append(next)
@@ -252,6 +266,7 @@ class QuizFlashcardViewController: UIViewController {
         resultsQuestionLabel.alpha = 0
         resultsAnswerLabel.alpha = 0
         resultsWrongsLabel.alpha = 0
+        resultsBlackBand.alpha = 0
         
 
         quizCardArray = folder?.quizCardArray

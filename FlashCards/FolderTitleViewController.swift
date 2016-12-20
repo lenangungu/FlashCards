@@ -155,10 +155,14 @@ class FolderTitleViewController: UIViewController {
             
                        var indexPaths: [NSIndexPath] = flashcardCollectionView.indexPathsForSelectedItems()!
                        let card = folder?.cardArray[indexPaths[0].row]
+                       card!.index = indexPaths[0].row
+            
             
             let displayFlashcardViewController = segue.destinationViewController as! SingleFlashcardViewController
             
+            displayFlashcardViewController.cardArray = folder?.cardArray 
             displayFlashcardViewController.card = card
+            displayFlashcardViewController.index = card?.index 
            
         }
     
