@@ -7,13 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BF0BF246E16693BED96382D /* Pods_FlashCardsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5BCD3AD73A7000BE6181A8 /* Pods_FlashCardsUITests.framework */; };
+		749F796763D0A4A137D8B75A /* Pods_FlashCardsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A939C9AAC9C2990F5ECBBB8 /* Pods_FlashCardsTests.framework */; };
+		89EFD6270B06616A8C7D6E1E /* Pods_FlashCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19EE76D055EAC3CE339DD275 /* Pods_FlashCards.framework */; };
 		8A2BAE521D354572002F3AE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAE511D354572002F3AE8 /* AppDelegate.swift */; };
-		8A2BAE541D354572002F3AE8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAE531D354572002F3AE8 /* ViewController.swift */; };
+		8A2BAE541D354572002F3AE8 /* FoldersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAE531D354572002F3AE8 /* FoldersViewController.swift */; };
 		8A2BAE571D354572002F3AE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A2BAE551D354572002F3AE8 /* Main.storyboard */; };
 		8A2BAE591D354572002F3AE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A2BAE581D354572002F3AE8 /* Assets.xcassets */; };
 		8A2BAE5C1D354572002F3AE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A2BAE5A1D354572002F3AE8 /* LaunchScreen.storyboard */; };
 		8A2BAE671D354572002F3AE8 /* FlashCardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAE661D354572002F3AE8 /* FlashCardsTests.swift */; };
 		8A2BAE721D354572002F3AE8 /* FlashCardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAE711D354572002F3AE8 /* FlashCardsUITests.swift */; };
+		8A2BAEF61D3AC726002F3AE8 /* FolderTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAEF51D3AC726002F3AE8 /* FolderTitleViewController.swift */; };
+		8A2BAEF81D3B00C3002F3AE8 /* FolderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAEF71D3B00C3002F3AE8 /* FolderCollectionViewCell.swift */; };
+		8A2BAEFA1D3B40A3002F3AE8 /* FlashcardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAEF91D3B40A3002F3AE8 /* FlashcardCollectionViewCell.swift */; };
+		8A2BAEFC1D3C41C5002F3AE8 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAEFB1D3C41C5002F3AE8 /* Flashcard.swift */; };
+		8A2BAF021D3C82DB002F3AE8 /* QuizFlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BAF011D3C82DB002F3AE8 /* QuizFlashcardViewController.swift */; };
+		8A3C82C71D3DDAD900846BC2 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3C82C61D3DDAD900846BC2 /* RealmHelper.swift */; };
+		8A3C82DB1D3E9F1F00846BC2 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3C82DA1D3E9F1F00846BC2 /* Folder.swift */; };
+		8A3C82DF1D4AA6CE00846BC2 /* FlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3C82DE1D4AA6CE00846BC2 /* FlashcardViewController.swift */; };
+		8A3C83041D54EDC500846BC2 /* SingleFlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3C83031D54EDC500846BC2 /* SingleFlashcardViewController.swift */; };
+		8AA6B90C1D6966F4004A9EDE /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA6B90B1D6966F4004A9EDE /* ResultsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,10 +46,28 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8A4CAFEE1D5D638400A5BC19 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		19EE76D055EAC3CE339DD275 /* Pods_FlashCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlashCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A939C9AAC9C2990F5ECBBB8 /* Pods_FlashCardsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlashCardsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EB4A57D35844C1DC963C4A6 /* Pods-FlashCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashCards.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlashCards/Pods-FlashCards.release.xcconfig"; sourceTree = "<group>"; };
+		4A51DA91BD64F5D609A5E2E9 /* Pods-FlashCardsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashCardsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlashCardsUITests/Pods-FlashCardsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5C3E043EF503CE62CF12E1C6 /* Pods-FlashCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashCards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlashCards/Pods-FlashCards.debug.xcconfig"; sourceTree = "<group>"; };
 		8A2BAE4E1D354572002F3AE8 /* FlashCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A2BAE511D354572002F3AE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8A2BAE531D354572002F3AE8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8A2BAE531D354572002F3AE8 /* FoldersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersViewController.swift; sourceTree = "<group>"; };
 		8A2BAE561D354572002F3AE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8A2BAE581D354572002F3AE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A2BAE5B1D354572002F3AE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +78,20 @@
 		8A2BAE6D1D354572002F3AE8 /* FlashCardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashCardsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A2BAE711D354572002F3AE8 /* FlashCardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardsUITests.swift; sourceTree = "<group>"; };
 		8A2BAE731D354572002F3AE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A2BAEF51D3AC726002F3AE8 /* FolderTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderTitleViewController.swift; sourceTree = "<group>"; };
+		8A2BAEF71D3B00C3002F3AE8 /* FolderCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderCollectionViewCell.swift; sourceTree = "<group>"; };
+		8A2BAEF91D3B40A3002F3AE8 /* FlashcardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashcardCollectionViewCell.swift; sourceTree = "<group>"; };
+		8A2BAEFB1D3C41C5002F3AE8 /* Flashcard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
+		8A2BAF011D3C82DB002F3AE8 /* QuizFlashcardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizFlashcardViewController.swift; sourceTree = "<group>"; };
+		8A3C82C61D3DDAD900846BC2 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
+		8A3C82DA1D3E9F1F00846BC2 /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		8A3C82DE1D4AA6CE00846BC2 /* FlashcardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashcardViewController.swift; sourceTree = "<group>"; };
+		8A3C83031D54EDC500846BC2 /* SingleFlashcardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleFlashcardViewController.swift; sourceTree = "<group>"; };
+		8AA6B90B1D6966F4004A9EDE /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
+		A2A8A59C36BB1C484F21D9C8 /* Pods-FlashCardsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashCardsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlashCardsTests/Pods-FlashCardsTests.release.xcconfig"; sourceTree = "<group>"; };
+		EA5BCD3AD73A7000BE6181A8 /* Pods_FlashCardsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlashCardsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDE54838A828D792D55614DC /* Pods-FlashCardsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashCardsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlashCardsUITests/Pods-FlashCardsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F5864AA0E616B30CA5340963 /* Pods-FlashCardsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashCardsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlashCardsTests/Pods-FlashCardsTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89EFD6270B06616A8C7D6E1E /* Pods_FlashCards.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				749F796763D0A4A137D8B75A /* Pods_FlashCardsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BF0BF246E16693BED96382D /* Pods_FlashCardsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +129,8 @@
 				8A2BAE651D354572002F3AE8 /* FlashCardsTests */,
 				8A2BAE701D354572002F3AE8 /* FlashCardsUITests */,
 				8A2BAE4F1D354572002F3AE8 /* Products */,
+				B13D721D3911808D00524798 /* Pods */,
+				DD6218C50C27D7A4D2FE0881 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +147,23 @@
 		8A2BAE501D354572002F3AE8 /* FlashCards */ = {
 			isa = PBXGroup;
 			children = (
+				8A3C82C81D3DDF0F00846BC2 /* Frameworks */,
+				8A3C82C51D3DDAB600846BC2 /* Helper */,
 				8A2BAE511D354572002F3AE8 /* AppDelegate.swift */,
-				8A2BAE531D354572002F3AE8 /* ViewController.swift */,
+				8A2BAE531D354572002F3AE8 /* FoldersViewController.swift */,
+				8A2BAEF51D3AC726002F3AE8 /* FolderTitleViewController.swift */,
+				8A2BAF011D3C82DB002F3AE8 /* QuizFlashcardViewController.swift */,
+				8A3C82DE1D4AA6CE00846BC2 /* FlashcardViewController.swift */,
 				8A2BAE551D354572002F3AE8 /* Main.storyboard */,
+				8AA6B90B1D6966F4004A9EDE /* ResultsTableViewCell.swift */,
 				8A2BAE581D354572002F3AE8 /* Assets.xcassets */,
 				8A2BAE5A1D354572002F3AE8 /* LaunchScreen.storyboard */,
 				8A2BAE5D1D354572002F3AE8 /* Info.plist */,
+				8A2BAEF71D3B00C3002F3AE8 /* FolderCollectionViewCell.swift */,
+				8A2BAEF91D3B40A3002F3AE8 /* FlashcardCollectionViewCell.swift */,
+				8A2BAEFB1D3C41C5002F3AE8 /* Flashcard.swift */,
+				8A3C82DA1D3E9F1F00846BC2 /* Folder.swift */,
+				8A3C83031D54EDC500846BC2 /* SingleFlashcardViewController.swift */,
 			);
 			path = FlashCards;
 			sourceTree = "<group>";
@@ -125,6 +186,45 @@
 			path = FlashCardsUITests;
 			sourceTree = "<group>";
 		};
+		8A3C82C51D3DDAB600846BC2 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				8A3C82C61D3DDAD900846BC2 /* RealmHelper.swift */,
+			);
+			name = Helper;
+			path = RealmHelper;
+			sourceTree = "<group>";
+		};
+		8A3C82C81D3DDF0F00846BC2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		B13D721D3911808D00524798 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5C3E043EF503CE62CF12E1C6 /* Pods-FlashCards.debug.xcconfig */,
+				3EB4A57D35844C1DC963C4A6 /* Pods-FlashCards.release.xcconfig */,
+				F5864AA0E616B30CA5340963 /* Pods-FlashCardsTests.debug.xcconfig */,
+				A2A8A59C36BB1C484F21D9C8 /* Pods-FlashCardsTests.release.xcconfig */,
+				EDE54838A828D792D55614DC /* Pods-FlashCardsUITests.debug.xcconfig */,
+				4A51DA91BD64F5D609A5E2E9 /* Pods-FlashCardsUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DD6218C50C27D7A4D2FE0881 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				19EE76D055EAC3CE339DD275 /* Pods_FlashCards.framework */,
+				1A939C9AAC9C2990F5ECBBB8 /* Pods_FlashCardsTests.framework */,
+				EA5BCD3AD73A7000BE6181A8 /* Pods_FlashCardsUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +232,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A2BAE761D354572002F3AE8 /* Build configuration list for PBXNativeTarget "FlashCards" */;
 			buildPhases = (
+				98B21BA03CF964F1B6C384DD /* [CP] Check Pods Manifest.lock */,
 				8A2BAE4A1D354572002F3AE8 /* Sources */,
 				8A2BAE4B1D354572002F3AE8 /* Frameworks */,
 				8A2BAE4C1D354572002F3AE8 /* Resources */,
+				8A3C82D11D3DE2F200846BC2 /* ShellScript */,
+				701F22EB832D3FF3A3A2C88A /* [CP] Embed Pods Frameworks */,
+				BDDD8F9707CC85A05ADD69AE /* [CP] Copy Pods Resources */,
+				8A4CAFEE1D5D638400A5BC19 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,9 +254,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A2BAE791D354572002F3AE8 /* Build configuration list for PBXNativeTarget "FlashCardsTests" */;
 			buildPhases = (
+				7AE234604F912BD05BAD4815 /* [CP] Check Pods Manifest.lock */,
 				8A2BAE5E1D354572002F3AE8 /* Sources */,
 				8A2BAE5F1D354572002F3AE8 /* Frameworks */,
 				8A2BAE601D354572002F3AE8 /* Resources */,
+				2FAAB85477099AF4DFA7E135 /* [CP] Embed Pods Frameworks */,
+				AD560B341D2A02697CA72C3B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +275,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A2BAE7C1D354572002F3AE8 /* Build configuration list for PBXNativeTarget "FlashCardsUITests" */;
 			buildPhases = (
+				C56AEAFC2DB6F5A538EAB679 /* [CP] Check Pods Manifest.lock */,
 				8A2BAE691D354572002F3AE8 /* Sources */,
 				8A2BAE6A1D354572002F3AE8 /* Frameworks */,
 				8A2BAE6B1D354572002F3AE8 /* Resources */,
+				8E8559B87EF1E5C5A6122F94 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,6 +303,7 @@
 				TargetAttributes = {
 					8A2BAE4D1D354572002F3AE8 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 8TM9YHUFEP;
 					};
 					8A2BAE611D354572002F3AE8 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -251,13 +362,158 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2FAAB85477099AF4DFA7E135 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlashCardsTests/Pods-FlashCardsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		701F22EB832D3FF3A3A2C88A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlashCards/Pods-FlashCards-frameworks.sh\"\n";
+		};
+		7AE234604F912BD05BAD4815 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8A3C82D11D3DE2F200846BC2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+		8E8559B87EF1E5C5A6122F94 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlashCardsUITests/Pods-FlashCardsUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98B21BA03CF964F1B6C384DD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AD560B341D2A02697CA72C3B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlashCardsTests/Pods-FlashCardsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDDD8F9707CC85A05ADD69AE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlashCards/Pods-FlashCards-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C56AEAFC2DB6F5A538EAB679 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8A2BAE4A1D354572002F3AE8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A2BAE541D354572002F3AE8 /* ViewController.swift in Sources */,
+				8A2BAF021D3C82DB002F3AE8 /* QuizFlashcardViewController.swift in Sources */,
+				8A2BAEFC1D3C41C5002F3AE8 /* Flashcard.swift in Sources */,
+				8AA6B90C1D6966F4004A9EDE /* ResultsTableViewCell.swift in Sources */,
+				8A2BAEF81D3B00C3002F3AE8 /* FolderCollectionViewCell.swift in Sources */,
+				8A3C83041D54EDC500846BC2 /* SingleFlashcardViewController.swift in Sources */,
+				8A2BAE541D354572002F3AE8 /* FoldersViewController.swift in Sources */,
+				8A3C82DF1D4AA6CE00846BC2 /* FlashcardViewController.swift in Sources */,
+				8A2BAEFA1D3B40A3002F3AE8 /* FlashcardCollectionViewCell.swift in Sources */,
+				8A3C82C71D3DDAD900846BC2 /* RealmHelper.swift in Sources */,
 				8A2BAE521D354572002F3AE8 /* AppDelegate.swift in Sources */,
+				8A2BAEF61D3AC726002F3AE8 /* FolderTitleViewController.swift in Sources */,
+				8A3C82DB1D3E9F1F00846BC2 /* Folder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,28 +655,51 @@
 		};
 		8A2BAE771D354572002F3AE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C3E043EF503CE62CF12E1C6 /* Pods-FlashCards.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FlashCards/Frameworks",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = FlashCards/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.FlashCards;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lenangungu.FlashCards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		8A2BAE781D354572002F3AE8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EB4A57D35844C1DC963C4A6 /* Pods-FlashCards.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FlashCards/Frameworks",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = FlashCards/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.FlashCards;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lenangungu.FlashCards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		8A2BAE7A1D354572002F3AE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5864AA0E616B30CA5340963 /* Pods-FlashCardsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = FlashCardsTests/Info.plist;
@@ -433,6 +712,7 @@
 		};
 		8A2BAE7B1D354572002F3AE8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2A8A59C36BB1C484F21D9C8 /* Pods-FlashCardsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = FlashCardsTests/Info.plist;
@@ -445,6 +725,7 @@
 		};
 		8A2BAE7D1D354572002F3AE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDE54838A828D792D55614DC /* Pods-FlashCardsUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = FlashCardsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -456,6 +737,7 @@
 		};
 		8A2BAE7E1D354572002F3AE8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A51DA91BD64F5D609A5E2E9 /* Pods-FlashCardsUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = FlashCardsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -484,6 +766,7 @@
 				8A2BAE781D354572002F3AE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8A2BAE791D354572002F3AE8 /* Build configuration list for PBXNativeTarget "FlashCardsTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +775,7 @@
 				8A2BAE7B1D354572002F3AE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8A2BAE7C1D354572002F3AE8 /* Build configuration list for PBXNativeTarget "FlashCardsUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +784,7 @@
 				8A2BAE7E1D354572002F3AE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
